@@ -1,0 +1,231 @@
+﻿/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+/* NEW YEAR SCREEN RESOLUTIONS FOR MEDIA QUERIES */
+@font-face {
+  font-family: 'UKNumberPlate';
+  src: url('../fonts/UKNumberPlate.ttf') format('truetype');
+}
+#help-page {
+  text-align: center;
+  color: #5264AE;
+}
+#help-page h1 {
+  margin-top: 10px;
+}
+#help-page #faq {
+  margin: auto;
+}
+#help-page #faq .accordion-content {
+  display: none;
+  padding: 5px 10px;
+}
+#help-page #faq .accordion-item {
+  margin-bottom: 1px;
+}
+#help-page #faq .accordion-item h3 {
+  font-size: 20px;
+  font-weight: bold;
+  height: 45px;
+  border: 1px solid #3E4F92;
+  border-radius: 3px;
+  background: #5264AE;
+  color: #fff;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#help-page #faq .accordion-item h3:hover {
+  background: #697AB8;
+}
+#help-page #faq .accordion-item p {
+  text-align: left;
+  font-size: 18px;
+  line-height: 25px;
+}
+#help-page #faq .accordion-item ul {
+  list-style-type: decimal;
+  text-align: left;
+  padding-left: 25px;
+  font-size: 18px;
+  line-height: 20px;
+}
+#cookie {
+  width: 1024px;
+  max-width: 100%;
+  margin: auto;
+  color: #000;
+}
+#cookie h1 {
+  font-size: 25px;
+  margin: 15px 0;
+}
+#cookie h2 {
+  font-size: 20px;
+  margin: 15px 0;
+}
+#cookie p {
+  font-size: 17px;
+  margin: 10px 0;
+}
+@media (min-width:320px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+}
+@media (min-width:480px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  #help-page {
+    text-align: center;
+    color: #5264AE;
+  }
+  #help-page h1 {
+    margin-top: 10px;
+  }
+  #help-page #faq {
+    margin: auto;
+  }
+  #help-page #faq .accordion-content {
+    display: none;
+    padding: 5px 10px;
+  }
+  #help-page #faq .accordion-item {
+    margin-bottom: 1px;
+  }
+  #help-page #faq .accordion-item h3 {
+    font-size: 20px;
+    font-weight: bold;
+    height: 45px;
+    border: 1px solid #3E4F92;
+    border-radius: 3px;
+    background: #5264AE;
+    color: #fff;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  #help-page #faq .accordion-item h3:hover {
+    background: #697AB8;
+  }
+  #help-page #faq .accordion-item p {
+    text-align: left;
+    font-size: 18px;
+    line-height: 25px;
+  }
+  #help-page #faq .accordion-item ul {
+    list-style-type: decimal;
+    text-align: left;
+    padding-left: 25px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+@media (min-width:640px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+@media (min-width:960px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width:1024px) {
+  /* big landscape tablets, laptops, and desktops */
+  #help-page #faq {
+    width: 1024px;
+    margin: auto;
+    text-align: center;
+    color: #5264AE;
+  }
+  #help-page #faq .accordion-content {
+    display: none;
+    padding: 5px 10px;
+  }
+  #help-page #faq .accordion-item {
+    margin-bottom: 1px;
+  }
+  #help-page #faq .accordion-item h3 {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 0;
+    border: 1px solid #3E4F92;
+    border-radius: 3px;
+    background: #5264AE;
+    color: #fff;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  #help-page #faq .accordion-item h3:hover {
+    background: #697AB8;
+  }
+  #help-page #faq .accordion-item p {
+    text-align: left;
+    font-size: 18px;
+    line-height: 25px;
+  }
+  #help-page #faq .accordion-item ul {
+    list-style-type: decimal;
+    text-align: left;
+    padding-left: 25px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+@media (min-width: 1280px) {
+  /* hi-res laptops and desktops */
+  #help-page #faq {
+    width: 1024px;
+    margin: auto;
+    text-align: center;
+    color: #5264AE;
+  }
+  #help-page #faq .accordion-content {
+    display: none;
+    padding: 5px 10px;
+  }
+  #help-page #faq .accordion-item {
+    margin-bottom: 1px;
+  }
+  #help-page #faq .accordion-item h3 {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 0;
+    border: 1px solid #3E4F92;
+    border-radius: 3px;
+    background: #5264AE;
+    color: #fff;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  #help-page #faq .accordion-item h3:hover {
+    background: #697AB8;
+  }
+  #help-page #faq .accordion-item p {
+    text-align: left;
+    font-size: 18px;
+    line-height: 25px;
+  }
+  #help-page #faq .accordion-item ul {
+    list-style-type: decimal;
+    text-align: left;
+    padding-left: 25px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+}

@@ -1,0 +1,28 @@
+﻿@model CarFixed.Models.MyQuotesModel
+
+@{    
+    ViewBag.Title = "My Quotes";
+}
+
+<script>
+    $(document).ready(function () {
+        $('.account-tab-menu .quotes').addClass("open-tab");
+    });
+</script>
+
+@Html.Partial("_MyAccountMenu")
+
+<div id="my-quotes" class="account-tab">
+    <h2>My Quotes</h2>
+
+    @Html.EditorFor(m => m.Quotes)
+</div>
+
+<script>
+    $('.quote-item .quote-main-content').click(function () {
+        $(this).siblings(".quote-hidden-content").slideToggle("slow");
+        if ($(this).parent().siblings(".quote-item").find(".quote-hidden-content").is(":visible")) {
+            $(this).parent().siblings(".quote-item").find(".quote-hidden-content").slideUp("slow");
+        }
+    });
+</script>

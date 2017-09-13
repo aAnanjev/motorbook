@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarFixedModelStoreContainer" CdmEntityContainer="CarFixedEntities">
+    <EntitySetMapping Name="BasicCategories">
+      <EntityTypeMapping TypeName="CarFixedModel.BasicCategory">
+        <MappingFragment StoreEntitySet="BasicCategory">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="BasicCategoryID" ColumnName="BasicCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="CarFixedModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="IsDisplayed" ColumnName="IsDisplayed" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="WarrantyExpiryDate" ColumnName="WarrantyExpiryDate" />
+          <ScalarProperty Name="HasWarranty" ColumnName="HasWarranty" />
+          <ScalarProperty Name="ServicePlanExpiryDate" ColumnName="ServicePlanExpiryDate" />
+          <ScalarProperty Name="HasServicePlan" ColumnName="HasServicePlan" />
+          <ScalarProperty Name="LastKnownMileage" ColumnName="LastKnownMileage" />
+          <ScalarProperty Name="FuelType" ColumnName="FuelType" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="GCodeID" ColumnName="GCodeID" />
+          <ScalarProperty Name="VRM" ColumnName="VRM" />
+          <ScalarProperty Name="CarFixedUserID" ColumnName="CarFixedUserID" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarFixedUsers">
+      <EntityTypeMapping TypeName="CarFixedModel.CarFixedUser">
+        <MappingFragment StoreEntitySet="CarFixedUser">
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="GarageID" ColumnName="GarageID" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CarFixedUserID" ColumnName="CarFixedUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quotes">
+      <EntityTypeMapping TypeName="CarFixedModel.Quote">
+        <MappingFragment StoreEntitySet="Quote">
+          <ScalarProperty Name="QuoteEmailFrequencyID" ColumnName="QuoteEmailFrequencyID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="GarageID" ColumnName="GarageID" />
+          <ScalarProperty Name="EstimatedMinutes" ColumnName="EstimatedMinutes" />
+          <ScalarProperty Name="EstimatedHours" ColumnName="EstimatedHours" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="QuoteUrgencyID" ColumnName="QuoteUrgencyID" />
+          <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuoteItemAdvRepairs">
+      <EntityTypeMapping TypeName="CarFixedModel.QuoteItemAdvRepair">
+        <MappingFragment StoreEntitySet="QuoteItemAdvRepair">
+          <ScalarProperty Name="GReference" ColumnName="GReference" />
+          <ScalarProperty Name="EstimatedMinutes" ColumnName="EstimatedMinutes" />
+          <ScalarProperty Name="EstimatedHours" ColumnName="EstimatedHours" />
+          <ScalarProperty Name="OperationDescription" ColumnName="OperationDescription" />
+          <ScalarProperty Name="ComponentDescription" ColumnName="ComponentDescription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="QuoteItemAdvRepairID" ColumnName="QuoteItemAdvRepairID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuoteItemAdvServices">
+      <EntityTypeMapping TypeName="CarFixedModel.QuoteItemAdvService">
+        <MappingFragment StoreEntitySet="QuoteItemAdvService">
+          <ScalarProperty Name="GReference" ColumnName="GReference" />
+          <ScalarProperty Name="EstimatedMinutes" ColumnName="EstimatedMinutes" />
+          <ScalarProperty Name="EstimatedHours" ColumnName="EstimatedHours" />
+          <ScalarProperty Name="Months" ColumnName="Months" />
+          <ScalarProperty Name="Miles" ColumnName="Miles" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="QuoteItemAdvServiceID" ColumnName="QuoteItemAdvServiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuoteItemBasics">
+      <EntityTypeMapping TypeName="CarFixedModel.QuoteItemBasic">
+        <MappingFragment StoreEntitySet="QuoteItemBasic">
+          <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="BasicSubCategoryID" ColumnName="BasicSubCategoryID" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="QuoteItemBasicID" ColumnName="QuoteItemBasicID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuoteUrgencies">
+      <EntityTypeMapping TypeName="CarFixedModel.QuoteUrgency">
+        <MappingFragment StoreEntitySet="QuoteUrgency">
+          <ScalarProperty Name="NoOfDays" ColumnName="NoOfDays" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="QuoteUrgencyID" ColumnName="QuoteUrgencyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GarageServices">
+      <EntityTypeMapping TypeName="CarFixedModel.GarageService">
+        <MappingFragment StoreEntitySet="GarageService">
+          <ScalarProperty Name="BasicCategoryID" ColumnName="BasicCategoryID" />
+          <ScalarProperty Name="GarageID" ColumnName="GarageID" />
+          <ScalarProperty Name="GarageServiceID" ColumnName="GarageServiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="CarFixedModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="Town" ColumnName="Town" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GarageSelectByQuoteDistance" FunctionName="CarFixedModel.Store.GarageSelectByQuoteDistance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarFixedModel.GarageSelectByQuoteDistance_Result">
+          <ScalarProperty Name="GarageID" ColumnName="GarageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="CarFixedModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="IsQuoteGarageOptionStatus" ColumnName="IsQuoteGarageOptionStatus" />
+          <ScalarProperty Name="IsQuoteStatus" ColumnName="IsQuoteStatus" />
+          <ScalarProperty Name="IsGarageStatus" ColumnName="IsGarageStatus" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Garages">
+      <EntityTypeMapping TypeName="CarFixedModel.Garage">
+        <MappingFragment StoreEntitySet="Garage">
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="NoOfRamps" ColumnName="NoOfRamps" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="VatNumber" ColumnName="VatNumber" />
+          <ScalarProperty Name="IsVatRegistered" ColumnName="IsVatRegistered" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="GarageRef" ColumnName="GarageRef" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GarageID" ColumnName="GarageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuoteGarageOptions">
+      <EntityTypeMapping TypeName="CarFixedModel.QuoteGarageOption">
+        <MappingFragment StoreEntitySet="QuoteGarageOption">
+          <ScalarProperty Name="QuoteSubmittedMessage" ColumnName="QuoteSubmittedMessage" />
+          <ScalarProperty Name="IsQuoteSubmitted" ColumnName="IsQuoteSubmitted" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="QuoteSubmittedValue" ColumnName="QuoteSubmittedValue" />
+          <ScalarProperty Name="DateQuoteSubmitted" ColumnName="DateQuoteSubmitted" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="GarageID" ColumnName="GarageID" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="QuoteGarageOptionID" ColumnName="QuoteGarageOptionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BasicSubCategoryGroups">
+      <EntityTypeMapping TypeName="CarFixedModel.BasicSubCategoryGroup">
+        <MappingFragment StoreEntitySet="BasicSubCategoryGroup">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="BasicSubCategoryGroupID" ColumnName="BasicSubCategoryGroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BasicSubCategoryRepairRefs">
+      <EntityTypeMapping TypeName="CarFixedModel.BasicSubCategoryRepairRef">
+        <MappingFragment StoreEntitySet="BasicSubCategoryRepairRef">
+          <ScalarProperty Name="RepairRef" ColumnName="RepairRef" />
+          <ScalarProperty Name="BasicSubCategoryID" ColumnName="BasicSubCategoryID" />
+          <ScalarProperty Name="BasicSubCategoryRepairRefID" ColumnName="BasicSubCategoryRepairRefID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BasicSubCategories">
+      <EntityTypeMapping TypeName="CarFixedModel.BasicSubCategory">
+        <MappingFragment StoreEntitySet="BasicSubCategory">
+          <ScalarProperty Name="IsLinkedToService" ColumnName="IsLinkedToService" />
+          <ScalarProperty Name="IsLinkedToRepairTime" ColumnName="IsLinkedToRepairTime" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="BasicSubCategoryGroupID" ColumnName="BasicSubCategoryGroupID" />
+          <ScalarProperty Name="BasicCategoryID" ColumnName="BasicCategoryID" />
+          <ScalarProperty Name="BasicSubCategoryID" ColumnName="BasicSubCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

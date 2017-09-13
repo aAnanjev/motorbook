@@ -1,0 +1,16 @@
+﻿<div class="account-tab-menu">
+    <ul>
+        @if (User.IsInRole("User"))
+        { 
+            <li class="quotes"><a href="@Url.Action("MyQuotes", "Account")">My Quotes</a></li>
+            <li class="vehicles"><a href="@Url.Action("MyVehicles", "Account")">My Vehicles</a></li>
+        }
+        @if (User.IsInRole("Mechanic"))
+        {
+            <li class="jobs"><a href="@Url.Action("Index", "Garage")">Job Requests</a></li>
+        }
+        <li class="details"><a href="@Url.Action("MyDetails", "Account")">My Details</a></li>
+
+
+    </ul>
+</div>

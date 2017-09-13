@@ -1,0 +1,11 @@
+﻿@model BasicCategoryRegistrationModel
+
+@using CarFixed.Models;
+
+<div class="col-lg-6">
+    @Html.Kendo().CheckBoxFor(m => m.IsSelected).Label(Model.Category.Title).HtmlAttributes(new { @class="category-select"})
+    @*@Html.Label(Model.Category.Title)*@
+
+    @Html.HiddenFor(m => m.Category.BasicCategoryID)
+    @Html.HiddenFor(m => m.Category.Title)
+</div>

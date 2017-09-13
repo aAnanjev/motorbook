@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="813e9a680a7642788d5629c73980c57b" Name="Diagram1" ZoomLevel="65" >
+        <EntityTypeShape EntityType="CarFixedModel.BasicCategory" Width="1.5" PointX="3.375" PointY="1" />
+        <EntityTypeShape EntityType="CarFixedModel.Vehicle" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CarFixedModel.CarFixedUser" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CarFixedModel.Quote" Width="1.5" PointX="5.625" PointY="4.5" />
+        <EntityTypeShape EntityType="CarFixedModel.QuoteItemAdvRepair" Width="1.5" PointX="7.875" PointY="9" />
+        <EntityTypeShape EntityType="CarFixedModel.QuoteItemAdvService" Width="1.5" PointX="7.875" PointY="12.5" />
+        <EntityTypeShape EntityType="CarFixedModel.QuoteItemBasic" Width="1.5" PointX="7.875" PointY="3.5" />
+        <EntityTypeShape EntityType="CarFixedModel.QuoteUrgency" Width="1.5" PointX="3.375" PointY="5.5" />
+        <AssociationConnector Association="CarFixedModel.FK_Vehicle_CarFixedUserID" />
+        <AssociationConnector Association="CarFixedModel.FK_Quote_QuoteUrgencyID" />
+        <AssociationConnector Association="CarFixedModel.FK_Quote_VehicleID" />
+        <AssociationConnector Association="CarFixedModel.FK_QuoteItemAdvRepair_QuoteID" />
+        <AssociationConnector Association="CarFixedModel.FK_QuoteItemAdvService_QuoteID" />
+        <AssociationConnector Association="CarFixedModel.FK_QuoteItemBasic_QuoteID" />
+        <EntityTypeShape EntityType="CarFixedModel.GarageService" Width="1.5" PointX="5.625" PointY="9.125" />
+        <AssociationConnector Association="CarFixedModel.FK_GarageService_BasicCategoryID" />
+        <EntityTypeShape EntityType="CarFixedModel.Address" Width="1.5" PointX="0.75" PointY="9.875" />
+        <AssociationConnector Association="CarFixedModel.FK_CarFixedUser_AddressID" />
+        <EntityTypeShape EntityType="CarFixedModel.Status" Width="1.5" PointX="0.75" PointY="14.5" />
+        <EntityTypeShape EntityType="CarFixedModel.Garage" Width="1.5" PointX="3" PointY="11.25" />
+        <AssociationConnector Association="CarFixedModel.FK_Garage_AddressID" />
+        <AssociationConnector Association="CarFixedModel.FK_CarFixedUser_GarageID" />
+        <AssociationConnector Association="CarFixedModel.FK_Garage_StatusID" />
+        <AssociationConnector Association="CarFixedModel.FK_GarageService_GarageID" />
+        <AssociationConnector Association="CarFixedModel.FK_Quote_GarageID" />
+        <EntityTypeShape EntityType="CarFixedModel.QuoteGarageOption" Width="1.5" PointX="10.875" PointY="8.75" />
+        <AssociationConnector Association="CarFixedModel.FK_QuoteGarageOption_GarageID" />
+        <AssociationConnector Association="CarFixedModel.FK_QuoteGarageOption_QuoteID" />
+        <EntityTypeShape EntityType="CarFixedModel.BasicSubCategoryGroup" Width="1.875" PointX="10.5" PointY="1.375" />
+        <EntityTypeShape EntityType="CarFixedModel.BasicSubCategoryRepairRef" Width="1.875" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="CarFixedModel.BasicSubCategory" Width="1.5" PointX="13.125" PointY="0.75" />
+        <AssociationConnector Association="CarFixedModel.FK_BasicSubCategory_BasicCategoryID" />
+        <AssociationConnector Association="CarFixedModel.FK_BasicSubCategory_BasicSubCategoryGroupID" />
+        <AssociationConnector Association="CarFixedModel.FK_BasicSubCategoryRepairRef_BasicSubCategoryID" />
+        <AssociationConnector Association="CarFixedModel.FK_QuoteItemBasic_BasicSubCategoryID" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

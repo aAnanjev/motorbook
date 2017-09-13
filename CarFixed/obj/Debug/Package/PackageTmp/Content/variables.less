@@ -1,0 +1,50 @@
+﻿@import "mixins";
+@main-fontcolor: #5264AE;
+@main-hovercolor: #417cb8;
+@main-fontfamily: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+@universal-h1-size: 40px;
+@universal-h2-size: 25px;
+@universal-h1-size-large: 60px;
+@universal-h2-size-large: 40px;
+@universal-h1-size-medium: 55px;
+@universal-h2-size-medium: 35px;
+
+/* NEW YEAR SCREEN RESOLUTIONS FOR MEDIA QUERIES */
+@teeny-tiny-phone: ~"(min-width:320px)";
+@smartphone: ~"(min-width:480px)";
+@landscape-phone: ~"(min-width:640px)";
+@portrait-tablets: ~"(min-width:768px)";
+@large-tablets: ~"(min-width:960px)";
+@landscape-tablets: ~"(min-width:1024px)";
+@laptops: ~"(min-width: 1280px)";
+@large-desktop: ~"(min-width: 1680px)";
+
+@font-face {
+    font-family: 'UKNumberPlate';
+    src: url('../fonts/UKNumberPlate.ttf') format('truetype');
+}
+
+.user-select (@val) {
+    -webkit-touch-callout: @val;
+    -webkit-user-select: @val;
+    -khtml-user-select: @val;
+    -moz-user-select: @val;
+    -ms-user-select: @val;
+    user-select: @val;
+}
+
+.background-linear() {
+    background: -moz-linear-gradient(rgba(82,100,174,0.45) 40%,rgba(255,255,255,.00)),url('Images/background.jpg');
+    background: -webkit-linear-gradient(rgba(82,100,174,0.45) 40%,rgba(255,255,255,.00)),url('Images/background.jpg');
+    background: -o-linear-gradient(rgba(82,100,174,0.45) 40%,rgba(255,255,255,.00)),url('Images/background.jpg');
+    background: -ms-linear-gradient(rgba(82,100,174,0.45) 40%,rgba(255,255,255,.00)),url('Images/background.jpg');
+    background: linear-gradient(rgba(82,100,174,0.45) 40%,rgba(255,255,255,.00)),url('Images/background.jpg');
+}
+
+.background-size(@val){
+    -o-background-size: @val;
+    -moz-background-size: @val;
+    -webkit-background-size: @val;
+    -ms-background-size: @val;
+    background-size: @val;
+}

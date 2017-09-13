@@ -1,0 +1,232 @@
+﻿@model CarFixed.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+<script src="~/Scripts/userRegister.validation.js"></script>
+<script src="~/Scripts/mechanicRegister.validation.js"></script>
+
+<div class="register">
+    <h2>@ViewBag.Title.</h2>
+    <h4>Create a new account.</h4>
+    <div class="switch-field">
+        <input type="radio" id="switch_left" name="account-type" value="driver" checked />
+        <label for="switch_left">Driver</label>
+        <input type="radio" id="switch_right" name="account-type" value="mechanic" />
+        <label for="switch_right">Mechanic</label>
+        @*@(Html.Kendo().RadioButton().Name("switch_left").Checked(true).HtmlAttributes(new { @name = "account-type", @value = "driver" }).Label("Driver"))
+            @(Html.Kendo().RadioButton().Name("switch_right").Checked(false).HtmlAttributes(new { @name = "account-type", @value = "mechanic" }).Label("Mechanic"))*@
+    </div>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", @id = "driver-form" }))
+    {
+        @Html.HiddenFor(m => m.IsGarage, new { @class = "_HdnIsGarage" })
+
+        <div class="registration-form" id="driver-registration-form">
+            @Html.AntiForgeryToken()
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div>
+                @Html.Kendo().TextBoxFor(m => m.FirstName).HtmlAttributes(new { placeholder = "First Name" })
+            </div>
+            <div>
+                @Html.Kendo().TextBoxFor(m => m.LastName).HtmlAttributes(new { placeholder = "Last Name" })
+            </div>
+            <div>
+                @Html.Kendo().TextBoxFor(m => m.Email).HtmlAttributes(new { placeholder = "E-mail", @type = "email" })
+            </div>
+            <div>
+                @Html.Kendo().TextBoxFor(m => m.PhoneNum).HtmlAttributes(new { placeholder = "Phone Number" })
+            </div>
+            <div>
+                @Html.Kendo().TextBoxFor(m => m.Password).HtmlAttributes(new { placeholder = "Password", @type = "password" })
+            </div>
+            <div>
+                @*@Html.Kendo().TextBoxFor(m => m.ConfirmPassword).Name("pw").HtmlAttributes(new { placeholder = "Password" }))*@
+            </div>
+            <div>
+                @Html.Kendo().Button().Name("Register").Content("Register").HtmlAttributes(new { type = "button", onclick = "Javascript:driverRegister()" })
+            </div>
+        </div>
+    }
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @id = "mechanic-form", @class = "hidden" }))
+    {
+        @Html.HiddenFor(m => m.IsGarage, new { @class = "_HdnIsGarage" })
+
+        <div class="registration-form">
+            <div class="page1">
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div>
+                    @Html.Kendo().TextBoxFor(m => m.FirstName).HtmlAttributes(new { placeholder = "First Name" })
+                </div>
+                <div>
+                    @Html.Kendo().TextBoxFor(m => m.LastName).HtmlAttributes(new { placeholder = "Last Name" })
+                </div>
+                <div>
+                    @Html.Kendo().TextBoxFor(m => m.Email).HtmlAttributes(new { placeholder = "E-mail", @type = "email" })
+                </div>
+                <div>
+                    @Html.Kendo().TextBoxFor(m => m.PhoneNum).HtmlAttributes(new { placeholder = "Phone Number" })
+                </div>
+                <div>
+                    @Html.Kendo().TextBoxFor(m => m.Address1).HtmlAttributes(new { placeholder = "Address Line 1" })
+                </div>
+                <div>
+                    @Html.Kendo().TextBoxFor(m => m.Address2).HtmlAttributes(new { placeholder = "Address Line 2 (optional)" })
+                </div>
+                <div>
+                    @Html.Kendo().TextBoxFor(m => m.Town).HtmlAttributes(new { placeholder = "Town / City" })
+                </div>
+                <div>
+                    @Html.Kendo().TextBoxFor(m => m.County).HtmlAttributes(new { placeholder = "County" })
+                </div>
+                <div>
+                    @Html.Kendo().TextBoxFor(m => m.Postcode).HtmlAttributes(new { placeholder = "Postcode" })
+                </div>
+                <div>
+                    @Html.Kendo().TextBoxFor(m => m.Password).HtmlAttributes(new { placeholder = "Password", @type = "password" })
+                </div>
+                <div>
+                    @Html.Kendo().Button().Name("continue").Content("Continue").HtmlAttributes(new { type = "button", onclick = "Javascript:firstPageContinue()" })
+                </div>
+            </div>
+            <div class="page2 hidden">
+                <div>
+                    <div>
+                        @Html.Kendo().TextBoxFor(m => m.GarageName).HtmlAttributes(new { placeholder = "Garage Name" })
+                    </div>
+                    <div>
+                        @Html.TextAreaFor(m => m.Description, new { @class = "k-textbox", placeholder = "Tell us about your Garage!" })
+                    </div>
+                    <div>
+                        @Html.Kendo().CheckBoxFor(m => m.VatRegistered).Label("Are you VAT Registered?")
+                    </div>
+                    <div>
+                        @Html.Kendo().TextBoxFor(m => m.VatNumber).HtmlAttributes(new { placeholder = "VAT Number", @type = "number", @class = "hidden", disabled = "disabled" })
+                    </div>
+                    <div>
+                        <label>Services You Can Provide:</label>
+
+                        <div>
+                            <div class="col-lg-12">
+                                @Html.Kendo().CheckBox().Label("Select All").Name("selectAll").HtmlAttributes(new { @class = "category-select-all" })
+                            </div>
+                            <div id="category-checkboxes">
+                                @Html.EditorFor(m => m.Categories)
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        @Html.Kendo().TextBoxFor(m => m.RampNum).HtmlAttributes(new { @type = "number", placeholder = "Ramp Number", min = "0" })
+                    </div>
+                    <div>
+                        @Html.Kendo().TextBoxFor(m => m.TechnicianNum).HtmlAttributes(new { placeholder = "Technician Number", type = "number", min = "0" })
+                    </div>
+                    <div>
+                        @Html.Kendo().CheckBoxFor(m => m.Mot).Label("MOT Testing on Site?")
+                    </div>
+                    <div>
+                        @Html.Kendo().Button().Name("back").Content("Back").HtmlAttributes(new { type = "button", onclick = "Javascript:secondPageBack()" })
+                        @Html.Kendo().Button().Name("Register1").Content("Register").HtmlAttributes(new { type = "submit" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script>
+        $(document).ready(function () {
+            @if (Model.IsGarage)
+            {
+                <text>
+            $('#mechanic-form').removeClass("hidden");
+            $('#driver-form').addClass("hidden");
+            $('#switch_right').prop('checked', true);
+            $('._HdnIsGarage').val('True');
+            </text>
+            }
+            else
+            {
+                <text>
+            $('._HdnIsGarage').val('False');
+            </text>
+            }
+
+            $('input[type=radio][name=account-type]').change(function () {
+                if (this.value == 'driver') {
+                    $('#driver-form').removeClass("hidden");
+                    $('#mechanic-form').addClass("hidden");
+                    $('._HdnIsGarage').val('False');
+
+                }
+                else if (this.value == 'mechanic') {
+                    $('#mechanic-form').removeClass("hidden");
+                    $('#driver-form').addClass("hidden");
+                    $('._HdnIsGarage').val('True');
+
+                }
+            });
+
+            $('#VatRegistered').change(function () {
+                if ($(this).is(":checked")) {
+                    $('#VatNumber').removeClass("hidden");
+                    $('#VatNumber').attr("disabled", false);
+                }
+                else {
+                    $('#VatNumber').addClass("hidden");
+                    $('#VatNumber').attr("disabled", true);
+                }
+            });
+
+            function toggleAll(e) {
+                var view = dataSource.view();
+                var checked = e.target.checked;
+                for (var i = 0; i < view.length; i++) {
+                    view[i].set("checked", checked);
+                }
+            }
+
+            if ($('#selectAll').is(':checked')) {
+                $('.category-select').prop('checked', true);
+            }
+            else {
+                $('.category-select').prop('checked', false);
+            }
+
+
+            $('#selectAll').change(function () {
+                if ($('#selectAll').is(':checked')) {
+                    $('.category-select').prop('checked', true);
+                }
+                else {
+                    $('.category-select').prop('checked', false);
+                }
+            });
+        });
+
+
+        function firstPageContinue() {
+            if ($('.page1 input').valid() == true) {
+                $('.page1, .page2').toggleClass("hidden");
+            }
+        }
+
+        function secondPageBack() {
+            $('.page1, .page2').toggleClass("hidden");
+        }
+
+        function driverRegister() {
+            var validate = $('#driver-registration-form input');
+
+            if (validate.valid() == true) {
+                $('#driver-form').submit();
+            }
+        }
+    </script>
+}

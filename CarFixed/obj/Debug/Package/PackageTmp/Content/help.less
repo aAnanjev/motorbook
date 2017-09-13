@@ -1,0 +1,245 @@
+﻿@import url('variables.less');
+
+#help-page {
+    text-align: center;
+    color: @main-fontcolor;
+
+    h1 {
+        margin-top: 10px;
+    }
+
+    #faq {
+        margin: auto;
+
+        .accordion-content {
+            display: none;
+            padding: 5px 10px;
+        }
+
+        .accordion-item {
+            margin-bottom: 1px;
+
+            h3 {
+                font-size: 20px;
+                font-weight: bold;
+                height: 45px;
+                border: 1px solid #3E4F92;
+                border-radius: 3px;
+                background: @main-fontcolor;
+                color: #fff;
+                cursor: pointer;
+                .user-select(none);
+
+                &:hover {
+                    background: #697AB8;
+                }
+            }
+
+            p {
+                text-align: left;
+                font-size: 18px;
+                line-height: 25px;
+            }
+
+            ul {
+                list-style-type: decimal;
+                text-align: left;
+                padding-left: 25px;
+                font-size: 18px;
+                line-height: 20px;
+            }
+        }
+    }
+}
+
+#cookie {
+    width: 1024px;
+    max-width: 100%;
+    margin: auto;
+    color: #000;
+
+    h1 {
+        font-size: 25px;
+        margin: 15px 0;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin: 15px 0;
+    }
+
+    p {
+        font-size: 17px;
+        margin: 10px 0;
+    }
+}
+
+@media @teeny-tiny-phone { /* smartphones, iPhone, portrait 480x320 phones */
+}
+
+@media @smartphone { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+
+    #help-page {
+        text-align: center;
+        color: @main-fontcolor;
+
+        h1 {
+            margin-top: 10px;
+        }
+
+        #faq {
+            margin: auto;
+
+            .accordion-content {
+                display: none;
+                padding: 5px 10px;
+            }
+
+            .accordion-item {
+                margin-bottom: 1px;
+
+                h3 {
+                    font-size: 20px;
+                    font-weight: bold;
+                    height: 45px;
+                    border: 1px solid #3E4F92;
+                    border-radius: 3px;
+                    background: @main-fontcolor;
+                    color: #fff;
+                    cursor: pointer;
+                    .user-select(none);
+
+                    &:hover {
+                        background: #697AB8;
+                    }
+                }
+
+                p {
+                    text-align: left;
+                    font-size: 18px;
+                    line-height: 25px;
+                }
+
+                ul {
+                    list-style-type: decimal;
+                    text-align: left;
+                    padding-left: 25px;
+                    font-size: 18px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media @landscape-phone { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+
+}
+
+@media @portrait-tablets {
+}
+
+@media @large-tablets { /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media @landscape-tablets { /* big landscape tablets, laptops, and desktops */
+
+    #help-page {
+        #faq {
+            width: 1024px;
+            margin: auto;
+            text-align: center;
+            color: @main-fontcolor;
+
+            .accordion-content {
+                display: none;
+                padding: 5px 10px;
+            }
+
+            .accordion-item {
+                margin-bottom: 1px;
+
+                h3 {
+                    font-size: 20px;
+                    font-weight: bold;
+                    padding: 5px 0;
+                    border: 1px solid #3E4F92;
+                    border-radius: 3px;
+                    background: @main-fontcolor;
+                    color: #fff;
+                    cursor: pointer;
+                    .user-select(none);
+
+                    &:hover {
+                        background: #697AB8;
+                    }
+                }
+
+                p {
+                    text-align: left;
+                    font-size: 18px;
+                    line-height: 25px;
+                }
+
+                ul {
+                    list-style-type: decimal;
+                    text-align: left;
+                    padding-left: 25px;
+                    font-size: 18px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media @laptops { /* hi-res laptops and desktops */
+
+    #help-page {
+        #faq {
+            width: 1024px;
+            margin: auto;
+            text-align: center;
+            color: @main-fontcolor;
+
+            .accordion-content {
+                display: none;
+                padding: 5px 10px;
+            }
+
+            .accordion-item {
+                margin-bottom: 1px;
+
+                h3 {
+                    font-size: 20px;
+                    font-weight: bold;
+                    padding: 5px 0;
+                    border: 1px solid #3E4F92;
+                    border-radius: 3px;
+                    background: @main-fontcolor;
+                    color: #fff;
+                    cursor: pointer;
+                    .user-select(none);
+
+                    &:hover {
+                        background: #697AB8;
+                    }
+                }
+
+                p {
+                    text-align: left;
+                    font-size: 18px;
+                    line-height: 25px;
+                }
+
+                ul {
+                    list-style-type: decimal;
+                    text-align: left;
+                    padding-left: 25px;
+                    font-size: 18px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}

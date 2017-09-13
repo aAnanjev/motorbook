@@ -1,0 +1,131 @@
+﻿@model CarFixed.Models.QuoteModel
+
+@{
+    ViewBag.Title = "Get your Quote!";
+}
+
+<div class="quote-background">
+    <h1>Find your garage anywhere in UK</h1>
+    <div class="large-quote-form">
+        <div class="one-third-column">
+            @*@if(Session["VrmLookupResult"] != null) {
+                    <label>@Model.make, @Model.model</label>
+                }*@
+
+            <label for="vrm">VRM?</label><br />
+
+            @Html.Kendo().TextBox().Name("vrm").HtmlAttributes(new { @class = "vrm-input", value = "", placeholder = "Your Reg" })
+        </div>
+        <div class="one-third-column">
+            <label for="issue">Tell us what is wrong!</label><br />
+            @(Html.Kendo().DropDownListFor(m => m.CategoryId)
+                    .Name("service")
+                    .HtmlAttributes(new { id = "service", placeholder = "Select Service" })
+                    .DataTextField("Title")
+                    .DataValueField("BasicCategoryID")
+                    .Filter(FilterType.Contains)
+                    .DataSource(source =>
+                    {
+                        source.Read(read =>
+                        {
+                            read.Action("GetCategories", "Quote");
+                        });
+                    })
+            )
+        </div>
+        <div class="one-third-column">
+            <label for="postcode">Please Enter your Postcode: </label><br />
+            @Html.Kendo().TextBoxFor(m => m.Postcode).Name("postcode").HtmlAttributes(new { placeholder = "Your Postcode", required = "required" })
+        </div>
+        <section class="press">
+            @Html.Kendo().Button().Name("quote").Content("Get My Quote").HtmlAttributes(new { onclick = "vrmLookup()" })
+        </section>
+    </div>
+</div>
+<div class="filler-backgorund" style="background-color: #fff; color: #6496c8; height: 30vh; text-align: center; padding-top: 5%;">
+    <div style="width: 75%; margin: auto;">
+        <div style="width: 50%; float:left;">
+            <h2>HUGE Number of Quotes on our site</h2>
+            <p>Anything can go here, basically.</p>
+        </div>
+        <div style="width: 50%; float:left;">
+            <h2>HUGE Rating of our site</h2>
+            <p>Anything can go here, basically.</p>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+
+        var check = '@Session["CurrentVrm"]';
+
+        function vrmLookup() {
+            var vrm = $('#vrm').val();
+            if (vrm != "") {
+                var postcode = $('#postcode').val();
+                var service = parseInt($('#service').val());
+                if (vrm != check) {
+                    check = vrm;
+                    $.ajax({
+                        url: '@Url.Action("DoVRMLookup", "Quote")',
+                        type: 'POST',
+                        data: '{ vrm: "' + vrm + '"}',
+                        contentType: 'application/json',
+                        success: function (result) {
+                            if (result.status == "Confirmed") {
+                                $(".quote-popup").load("@Url.Action("QuoteForm", "Home")", function () {
+                                    $(".quote-popup").toggleClass("hidden");
+                                    $("html").toggleClass("noscroll");
+                                    $("#popup").toggleClass("active");
+
+                                    $(".vehicle-details").removeClass("hidden");
+
+                                    if (postcode) {
+                                        var dropdownlist = $("#_DrpCategory").data("kendoDropDownList");
+                                        $('#page1 #Postcode').val(postcode);
+                                        dropdownlist.value(service);
+                                        firstPageNext(event);
+                                    }
+                                });
+                            }
+                            else if (result.status == "Failed") {
+                                if (postcode) {
+                                    var dropdownlist = $("#_DrpCategory").data("kendoDropDownList");
+                                    $('#page1 #Postcode').val(postcode);
+                                    dropdownlist.value(service);
+                                }
+                            }
+                        }
+                    })
+                }
+                else {
+                    $(".quote-popup").load("@Url.Action("QuoteForm", "Quote")", function () {
+                        $(".quote-popup").toggleClass("hidden");
+                        $("html").toggleClass("noscroll");
+                        $("#popup").toggleClass("active");
+
+                        $(".vehicle-details").removeClass("hidden");
+
+                        if (postcode) {
+                            var dropdownlist = $("#_DrpCategory").data("kendoDropDownList");
+                            $('#page1 #Postcode').val(postcode);
+                            dropdownlist.value(service);
+                            firstPageNext();
+                        }
+                    });
+                }
+            }
+            else {
+                $(".quote-popup").load("@Url.Action("QuoteForm", "Quote", new { reset = true})", function () {
+                    $(".vehicle-details").removeClass("hidden");
+
+                    $(".quote-popup").toggleClass("hidden");
+                    $("html").toggleClass("noscroll");
+                    $("#popup").toggleClass("active");
+                    $(".vehicle-details").addClass("hidden");
+                    /* MANUAL LOOKUP CODE */
+                });
+            }
+        }
+    </script>
+}

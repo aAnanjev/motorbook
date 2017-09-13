@@ -1,0 +1,42 @@
+﻿[
+  {
+    "outputFile": "Content/main.css",
+    "inputFile": "Content/main.less"
+  },
+  {
+    "outputFile": "Content/contact.css",
+    "inputFile": "Content/contact.less"
+  },
+  {
+    "outputFile": "Content/about.css",
+    "inputFile": "Content/about.less"
+  },
+  {
+    "outputFile": "Content/universal.css",
+    "inputFile": "Content/universal.less"
+  },
+  {
+    "outputFile": "Content/variables.css",
+    "inputFile": "Content/variables.less"
+  },
+  {
+    "outputFile": "Content/mixins.css",
+    "inputFile": "Content/mixins.less"
+  },
+  {
+    "outputFile": "Content/slick.css",
+    "inputFile": "Content/slick.less"
+  },
+  {
+    "outputFile": "Content/account.css",
+    "inputFile": "Content/account.less"
+  },
+  {
+    "outputFile": "Content/help.css",
+    "inputFile": "Content/help.less"
+  },
+  {
+    "outputFile": "Content/garage.css",
+    "inputFile": "Content/garage.less"
+  }
+]

@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Contact Us";
+}
+<div id="contact-content">
+    <h2>@ViewBag.Title</h2>
+
+    @*<form>
+        <label for="email">E-mail</label>
+        <input type="text" name="email" required/><br />
+        <label for="telephone">Telephone</label>
+        <input type="tel" required /><br />
+        <label for="msg">Message</label>
+        <input type="text" required/><br />
+        <input type="submit" value="Send" />
+    </form>*@
+
+    <form>
+        <div class="group">
+            <input type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Full Name</label>
+        </div>
+
+        <div class="group">
+            <input type="email" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>E-mail</label>
+        </div>
+
+        <div class="group">
+            <input type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Telephone</label>
+        </div>
+
+        <div class="group">
+            <input type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Message</label>
+        </div>
+
+        <section class="press">
+            <button type="submit">Send</button>
+        </section>
+    </form>
+    <hr />
+
+    <address>
+        6 Klondyke Walk <br />
+        Blaydon-On-Tyne<br />
+        United Kingdom<br />
+        NE21 4FG<br />
+        <abbr title="Phone">P:</abbr>
+        +44 (0)666 666 6666
+    </address>
+</div>

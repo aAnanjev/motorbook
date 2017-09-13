@@ -1,0 +1,17 @@
+﻿@model BasicSubCategoryRepairModel
+
+@using CarFixed.Models;
+@using CarFixed.DS.DM;
+@using AutoGuru.Assistant.ThirdParty.AutoData.Models;
+
+
+<h2>Repair Times</h2>
+
+@foreach (AutoDataRepairTime rRef in Model.RelevantRepairs)
+{
+    <div>
+        <p class="description">@String.Format("{0} {1}", rRef.action_description, rRef.component_description)</p>
+        <p class="estimation">Estimated Time: @String.Format("{0} hours", rRef.time_hrs)</p>
+        <hr />
+    </div>
+}

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86FC3318-3280-4B59-BE23-7F46B160676B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CarFixed.DS.BLL</RootNamespace>
+    <AssemblyName>CarFixed.DS.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoGuru.Assistant">
+      <HintPath>..\..\binaries\AutoGuru.Assistant.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoGuru.Data">
+      <HintPath>..\..\binaries\AutoGuru.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoGuru.DataProvider">
+      <HintPath>..\..\binaries\AutoGuru.DataProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="RepairTimeBL.cs" />
+    <Compile Include="ServiceBL.cs" />
+    <Compile Include="StatusBL.cs" />
+    <Compile Include="CategoryBL.cs" />
+    <Compile Include="GarageBL.cs" />
+    <Compile Include="QuoteBL.cs" />
+    <Compile Include="UserBL.cs" />
+    <Compile Include="VehicleBL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarFixed.DS.API\CarFixed.DS.API.csproj">
+      <Project>{b7f686b6-c199-4b34-a3f5-7183710c5f02}</Project>
+      <Name>CarFixed.DS.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarFixed.DS.DAL\CarFixed.DS.DAL.csproj">
+      <Project>{9c9736a7-92f8-48c1-ba74-e439116b5d8b}</Project>
+      <Name>CarFixed.DS.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarFixed.DS.DM\CarFixed.DS.DM.csproj">
+      <Project>{58c52fbc-92c6-46ea-a5b4-b668b3eedb19}</Project>
+      <Name>CarFixed.DS.DM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

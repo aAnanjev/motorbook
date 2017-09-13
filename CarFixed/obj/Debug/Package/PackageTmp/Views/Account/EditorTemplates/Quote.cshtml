@@ -1,0 +1,37 @@
+﻿@model CarFixed.DS.DM.Quote
+
+@using CarFixed.DS.DM;
+<div class="quote-item">
+    @foreach (QuoteItemBasic itemBasic in Model.QuoteItemBasics)
+    {
+        <div class="quote-main-content">
+            <div class="left-side-quote">
+                <h3>@itemBasic.BasicSubCategory.Title</h3>
+                <p>@Model.Vehicle.Manufacturer <span class="uppercase">@Model.Vehicle.VRM</span></p>
+            </div>
+            <div class="right-side-quote">
+                @*@itemBasic.BasicSubCategory.BasicCategory.Title*@
+                <h3>Status</h3>
+                <p>@Model.DateAdded</p>
+            </div>
+        </div>
+        <div class="quote-hidden-content">
+            <hr />
+            <div class="left-side-quote">
+                <h3>Car Details</h3>
+                <div>@Html.Kendo().TextBoxFor(m=>m.Vehicle.VRM).HtmlAttributes(new { @class = "vrm-input" })</div>
+                <div>Make: @Model.Vehicle.Manufacturer</div>
+                <div>Model: @Model.Vehicle.Model</div>
+                <div>Year: @Model.Vehicle.Year</div>
+                <div>Fuel Type: @Model.Vehicle.FuelType</div>
+            </div>
+
+            <div class="right-side-quote">
+                <h3>Quote Details</h3>
+                <div>@itemBasic.BasicSubCategory.Title</div>
+                <div>@itemBasic.BasicSubCategory.BasicCategory.Title</div>
+                <div>@itemBasic.AdditionalInfo</div>
+            </div>
+        </div>
+    }
+</div>

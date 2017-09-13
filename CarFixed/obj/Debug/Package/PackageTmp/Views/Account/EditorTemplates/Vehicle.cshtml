@@ -1,0 +1,97 @@
+﻿@model CarFixed.DS.DM.Vehicle
+
+
+<div class="accordion-container" id="vehicle-@Model.VehicleID">
+
+    <div class="accordion-item">
+        <h3><span class="uppercase">@Model.VRM</span> @Model.Manufacturer</h3>
+        @Html.HiddenFor(m => m.CarFixedUserID)
+        @Html.HiddenFor(m => m.VehicleID)
+
+        <div class="accordion-content">
+            @Html.Kendo().TextBoxFor(m => m.VRM).HtmlAttributes(new { @class = "vrm-input" })
+            <div>@Model.VrmResponse.Make</div>
+            <div>@Model.VrmResponse.Model</div>
+            <div>@Model.VrmResponse.FuelType</div>
+            <div>@Model.VrmResponse.Year</div>
+            <div>@Model.VrmResponse.Colour</div>
+
+            @if (Model.VrmResponse != null)
+            {
+                <div>Last Known Mileage: @Model.VrmResponse.LastMot.OdometerReading @Model.VrmResponse.LastMot.OdomoterUnits</div>
+                <br />
+                <div id="_DivMot">
+                    <p>Mot Due: @Model.VrmResponse.LastMot.RenewalDate.ToString("dd/MM/yyyy")</p>
+                    <p>Tax Due: @Model.VrmResponse.TaxRenewalDate.Date.ToString("dd/MM/yyyy")</p>
+                </div>
+                <br />
+
+                if (Model.VrmResponse.LastMot != null && Model.VrmResponse.LastMot.Advisories != null)
+                {
+                    if (Model.VrmResponse.LastMot.Advisories.Count > 0)
+                    {
+                    <div>
+                        <p>Have you fixed you recent advisories?</p>
+
+                        <ul>
+
+                           @foreach (string adv in Model.VrmResponse.LastMot.Advisories)
+                            {
+                                <li>@adv</li>
+                           }
+
+                        </ul>
+                    </div>
+                        }
+                    }
+            }
+            <div><i class="fa fa-trash-o fa-2x" onclick="Javascript:DeleteVehicle(@Model.VehicleID)"></i></div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $( document ).ready(function() {
+
+        $.ajax({
+            url: '@Url.Action("RemoveVehicle", "Account")',
+            type: 'post',
+            data: '{ vehicleId: "'+ id +'"}',
+            contentType: 'application/json',
+            success: function (result) {
+                if (result.success) {
+                    $('#vehicle-' + id).addClass("hidden");
+                }
+                else {
+
+                }
+            }
+        });
+
+    });
+
+    $('.accordion-item h3').unbind().click(function () {
+
+        $(this).siblings(".accordion-content").slideToggle("slow");
+
+    });
+
+    function DeleteVehicle(id) {
+        debugger;
+        $.ajax({
+            url: '@Url.Action("RemoveVehicle", "Account")',
+            type: 'post',
+            data: '{ vehicleId: "'+ id +'"}',
+            contentType: 'application/json',
+            success: function (result) {
+                if (result.success) {
+                    $('#vehicle-' + id).addClass("hidden");
+                }
+                else {
+
+                }
+            }
+        });
+    }
+</script>

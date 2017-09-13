@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@*@(Html.Kendo().DatePicker()
+        .Name("datepicker")
+        .Value("10/10/2011")
+    )*@
+
+<div class="full-screen-background homepage">
+    <div id="header">
+        <h1>At MyCarFixed Trust Matters</h1>
+        <h2>We give you instant fair price estimates for vehicle repair work!</h2>
+    </div>
+    <div id="main-form">
+        <label for="vrm">Enter Reg Number</label>
+        @Html.Kendo().TextBox().Name("vrm").HtmlAttributes(new { @class = "vrm-input", id = "homepage-vrm-input", placeholder = "Your Reg", autocomplete="off" })
+        @Html.Kendo().Button().Name("vrmlookup").Content("Get my quotes").HtmlAttributes(new { onclick = "Javascript:vrmLookup()" })
+    </div>
+</div>
+<div class="placeholder" >
+    <h1>Lorem Ipsum Lorem Go Screw Yourself</h1>
+    @Html.Kendo().Button().Name("tratata").Content("Example Button").HtmlAttributes(new { onclick = "" })
+</div>
+
+@Html.Partial("~/Views/Shared/_HowItWorks.cshtml")
+
+
+@section scripts{
+    <script>
+        var check = '@Session["CurrentVrm"]';
+
+        function vrmLookup() {
+            var vrm = $('#homepage-vrm-input').val();
+            if (vrm != "") {
+                if (vrm != check) {
+                    check = vrm;
+                    $.ajax({
+                        url: '@Url.Action("DoVRMLookup")',
+                        type: 'POST',
+                        data: '{ vrm: "' + $("#homepage-vrm-input").val() + '"}',
+                        contentType: 'application/json',
+                        success: function (result) {
+                            if (result.status == "Confirmed") {
+                                $(".quote-popup").load("@Url.Action("QuoteForm")", function () {
+                                    $(".quote-popup").toggleClass("hidden");
+                                    $("html").toggleClass("noscroll");
+                                    $("#popup").toggleClass("active");
+                                    $(".vehicle-details").removeClass("hidden");
+                                });
+                            }
+                            else if (result.status == "Failed") {
+                                /* MANUAL LOOKUP CODE */
+                            }
+                        }
+                    })
+                }
+                else {
+                    $(".quote-popup").load("@Url.Action("QuoteForm")", function () {
+                        $(".quote-popup").toggleClass("hidden");
+                        $("html").toggleClass("noscroll");
+                        $("#popup").toggleClass("active");
+                        $(".vehicle-details").removeClass("hidden");
+                    });
+                }
+            }
+            else {
+                $(".quote-popup").load("@Url.Action("QuoteForm", new { reset = true})", function () {
+                    $(".quote-popup").toggleClass("hidden");
+                    $("html").toggleClass("noscroll");
+                    $("#popup").toggleClass("active");
+                    $(".vehicle-details").addClass("hidden");
+                    /* MANUAL LOOKUP CODE */
+                });
+            }
+        }
+    </script>
+}

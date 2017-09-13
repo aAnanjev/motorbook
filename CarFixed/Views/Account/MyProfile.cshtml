@@ -1,0 +1,50 @@
+﻿@model CarFixed.Models.MyProfileModel
+
+@{
+    Layout = "";
+    ViewBag.Title = "My Profile";
+}
+
+<div id="my-profile" class="account-tab">
+
+    <p class="profile-text-success text-success">@ViewBag.StatusMessage</p>
+    <p class="msg"></p>
+    @*@using (Html.BeginForm("UpdateProfile", "Account", FormMethod.Post))
+        {*@
+    <form id="profile-form">
+        @Html.HiddenFor(m => m.User.UserID)
+        @Html.HiddenFor(m => m.User.CarFixedUserID)
+
+        <h1>My Profile</h1>
+        <div>
+            @Html.Kendo().TextBoxFor(m => m.User.FirstName)
+        </div>
+        <div>
+            @Html.Kendo().TextBoxFor(m => m.User.LastName)
+        </div>
+
+        <div>
+            @Html.Kendo().TextBoxFor(m => m.User.Address.Postcode)
+        </div>
+
+        <div>
+            @Html.Kendo().Button().Name("Update").Content("Update Profile").HtmlAttributes(new { type = "button", onclick = "Javascript:profileFormSubmit()" })
+        </div>
+        @*}*@
+    </form>
+</div>
+
+<script>
+    function profileFormSubmit() {
+        var hold = $('#profile-form').serialize();
+
+        $.ajax({
+            url: '@Url.Action("UpdateProfile", "Account")',
+            type: 'post',
+            data: hold,
+            success: function (result) {
+                $('.profile-text-success').text(result.message);
+            }
+        });
+    }
+</script>

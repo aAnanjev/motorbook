@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarFixedModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CarFixedEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BasicCategories" EntityType="CarFixedModel.BasicCategory" />
+    <EntitySet Name="Vehicles" EntityType="CarFixedModel.Vehicle" />
+    <EntitySet Name="CarFixedUsers" EntityType="CarFixedModel.CarFixedUser" />
+    <EntitySet Name="Quotes" EntityType="CarFixedModel.Quote" />
+    <EntitySet Name="QuoteItemAdvRepairs" EntityType="CarFixedModel.QuoteItemAdvRepair" />
+    <EntitySet Name="QuoteItemAdvServices" EntityType="CarFixedModel.QuoteItemAdvService" />
+    <EntitySet Name="QuoteItemBasics" EntityType="CarFixedModel.QuoteItemBasic" />
+    <EntitySet Name="QuoteUrgencies" EntityType="CarFixedModel.QuoteUrgency" />
+    <AssociationSet Name="FK_Vehicle_CarFixedUserID" Association="CarFixedModel.FK_Vehicle_CarFixedUserID">
+      <End Role="CarFixedUser" EntitySet="CarFixedUsers" />
+      <End Role="Vehicle" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quote_QuoteUrgencyID" Association="CarFixedModel.FK_Quote_QuoteUrgencyID">
+      <End Role="QuoteUrgency" EntitySet="QuoteUrgencies" />
+      <End Role="Quote" EntitySet="Quotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quote_VehicleID" Association="CarFixedModel.FK_Quote_VehicleID">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="Quote" EntitySet="Quotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuoteItemAdvRepair_QuoteID" Association="CarFixedModel.FK_QuoteItemAdvRepair_QuoteID">
+      <End Role="Quote" EntitySet="Quotes" />
+      <End Role="QuoteItemAdvRepair" EntitySet="QuoteItemAdvRepairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuoteItemAdvService_QuoteID" Association="CarFixedModel.FK_QuoteItemAdvService_QuoteID">
+      <End Role="Quote" EntitySet="Quotes" />
+      <End Role="QuoteItemAdvService" EntitySet="QuoteItemAdvServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuoteItemBasic_QuoteID" Association="CarFixedModel.FK_QuoteItemBasic_QuoteID">
+      <End Role="Quote" EntitySet="Quotes" />
+      <End Role="QuoteItemBasic" EntitySet="QuoteItemBasics" />
+    </AssociationSet>
+    <EntitySet Name="GarageServices" EntityType="CarFixedModel.GarageService" />
+    <AssociationSet Name="FK_GarageService_BasicCategoryID" Association="CarFixedModel.FK_GarageService_BasicCategoryID">
+      <End Role="BasicCategory" EntitySet="BasicCategories" />
+      <End Role="GarageService" EntitySet="GarageServices" />
+    </AssociationSet>
+    <EntitySet Name="Addresses" EntityType="CarFixedModel.Address" />
+    <AssociationSet Name="FK_CarFixedUser_AddressID" Association="CarFixedModel.FK_CarFixedUser_AddressID">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="CarFixedUser" EntitySet="CarFixedUsers" />
+    </AssociationSet>
+    <FunctionImport Name="GarageSelectByQuoteDistance" ReturnType="Collection(CarFixedModel.GarageSelectByQuoteDistance_Result)">
+      <Parameter Name="QuoteID" Mode="In" Type="Int32" />
+      <Parameter Name="Radius" Mode="In" Type="Double" />
+    </FunctionImport>
+    <EntitySet Name="Status" EntityType="CarFixedModel.Status" />
+    <EntitySet Name="Garages" EntityType="CarFixedModel.Garage" />
+    <AssociationSet Name="FK_Garage_AddressID" Association="CarFixedModel.FK_Garage_AddressID">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="Garage" EntitySet="Garages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarFixedUser_GarageID" Association="CarFixedModel.FK_CarFixedUser_GarageID">
+      <End Role="Garage" EntitySet="Garages" />
+      <End Role="CarFixedUser" EntitySet="CarFixedUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Garage_StatusID" Association="CarFixedModel.FK_Garage_StatusID">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Garage" EntitySet="Garages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GarageService_GarageID" Association="CarFixedModel.FK_GarageService_GarageID">
+      <End Role="Garage" EntitySet="Garages" />
+      <End Role="GarageService" EntitySet="GarageServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quote_GarageID" Association="CarFixedModel.FK_Quote_GarageID">
+      <End Role="Garage" EntitySet="Garages" />
+      <End Role="Quote" EntitySet="Quotes" />
+    </AssociationSet>
+    <EntitySet Name="QuoteGarageOptions" EntityType="CarFixedModel.QuoteGarageOption" />
+    <AssociationSet Name="FK_QuoteGarageOption_GarageID" Association="CarFixedModel.FK_QuoteGarageOption_GarageID">
+      <End Role="Garage" EntitySet="Garages" />
+      <End Role="QuoteGarageOption" EntitySet="QuoteGarageOptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuoteGarageOption_QuoteID" Association="CarFixedModel.FK_QuoteGarageOption_QuoteID">
+      <End Role="Quote" EntitySet="Quotes" />
+      <End Role="QuoteGarageOption" EntitySet="QuoteGarageOptions" />
+    </AssociationSet>
+    <EntitySet Name="BasicSubCategoryGroups" EntityType="CarFixedModel.BasicSubCategoryGroup" />
+    <EntitySet Name="BasicSubCategoryRepairRefs" EntityType="CarFixedModel.BasicSubCategoryRepairRef" />
+    <EntitySet Name="BasicSubCategories" EntityType="CarFixedModel.BasicSubCategory" />
+    <AssociationSet Name="FK_BasicSubCategory_BasicCategoryID" Association="CarFixedModel.FK_BasicSubCategory_BasicCategoryID">
+      <End Role="BasicCategory" EntitySet="BasicCategories" />
+      <End Role="BasicSubCategory" EntitySet="BasicSubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BasicSubCategory_BasicSubCategoryGroupID" Association="CarFixedModel.FK_BasicSubCategory_BasicSubCategoryGroupID">
+      <End Role="BasicSubCategoryGroup" EntitySet="BasicSubCategoryGroups" />
+      <End Role="BasicSubCategory" EntitySet="BasicSubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BasicSubCategoryRepairRef_BasicSubCategoryID" Association="CarFixedModel.FK_BasicSubCategoryRepairRef_BasicSubCategoryID">
+      <End Role="BasicSubCategory" EntitySet="BasicSubCategories" />
+      <End Role="BasicSubCategoryRepairRef" EntitySet="BasicSubCategoryRepairRefs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuoteItemBasic_BasicSubCategoryID" Association="CarFixedModel.FK_QuoteItemBasic_BasicSubCategoryID">
+      <End Role="BasicSubCategory" EntitySet="BasicSubCategories" />
+      <End Role="QuoteItemBasic" EntitySet="QuoteItemBasics" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BasicCategory">
+    <Key>
+      <PropertyRef Name="BasicCategoryID" />
+    </Key>
+    <Property Name="BasicCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="GarageServices" Relationship="CarFixedModel.FK_GarageService_BasicCategoryID" FromRole="BasicCategory" ToRole="GarageService" />
+    <NavigationProperty Name="BasicSubCategories" Relationship="CarFixedModel.FK_BasicSubCategory_BasicCategoryID" FromRole="BasicCategory" ToRole="BasicSubCategory" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleID" />
+    </Key>
+    <Property Name="VehicleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarFixedUserID" Type="Int32" Nullable="false" />
+    <Property Name="VRM" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="GCodeID" Type="Int32" Nullable="false" />
+    <Property Name="Manufacturer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Model" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="FuelType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LastKnownMileage" Type="Int32" />
+    <Property Name="HasServicePlan" Type="Boolean" />
+    <Property Name="ServicePlanExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="HasWarranty" Type="Boolean" />
+    <Property Name="WarrantyExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CarFixedUser" Relationship="CarFixedModel.FK_Vehicle_CarFixedUserID" FromRole="Vehicle" ToRole="CarFixedUser" />
+    <NavigationProperty Name="Quotes" Relationship="CarFixedModel.FK_Quote_VehicleID" FromRole="Vehicle" ToRole="Quote" />
+    <Property Name="IsDisplayed" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarFixedUser">
+    <Key>
+      <PropertyRef Name="CarFixedUserID" />
+    </Key>
+    <Property Name="CarFixedUserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Vehicles" Relationship="CarFixedModel.FK_Vehicle_CarFixedUserID" FromRole="CarFixedUser" ToRole="Vehicle" />
+    <Property Name="GarageID" Type="Int32" />
+    <Property Name="AddressID" Type="Int32" />
+    <NavigationProperty Name="Address" Relationship="CarFixedModel.FK_CarFixedUser_AddressID" FromRole="CarFixedUser" ToRole="Address" />
+    <NavigationProperty Name="Garage" Relationship="CarFixedModel.FK_CarFixedUser_GarageID" FromRole="CarFixedUser" ToRole="Garage" />
+  </EntityType>
+  <EntityType Name="Quote">
+    <Key>
+      <PropertyRef Name="QuoteID" />
+    </Key>
+    <Property Name="QuoteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleID" Type="Int32" Nullable="false" />
+    <Property Name="AdditionalInfo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="QuoteUrgencyID" Type="Int32" Nullable="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EstimatedHours" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="EstimatedMinutes" Type="Int32" />
+    <Property Name="GarageID" Type="Int32" />
+    <NavigationProperty Name="QuoteUrgency" Relationship="CarFixedModel.FK_Quote_QuoteUrgencyID" FromRole="Quote" ToRole="QuoteUrgency" />
+    <NavigationProperty Name="Vehicle" Relationship="CarFixedModel.FK_Quote_VehicleID" FromRole="Quote" ToRole="Vehicle" />
+    <NavigationProperty Name="QuoteItemAdvRepairs" Relationship="CarFixedModel.FK_QuoteItemAdvRepair_QuoteID" FromRole="Quote" ToRole="QuoteItemAdvRepair" />
+    <NavigationProperty Name="QuoteItemAdvServices" Relationship="CarFixedModel.FK_QuoteItemAdvService_QuoteID" FromRole="Quote" ToRole="QuoteItemAdvService" />
+    <NavigationProperty Name="QuoteItemBasics" Relationship="CarFixedModel.FK_QuoteItemBasic_QuoteID" FromRole="Quote" ToRole="QuoteItemBasic" />
+    <NavigationProperty Name="Garage" Relationship="CarFixedModel.FK_Quote_GarageID" FromRole="Quote" ToRole="Garage" />
+    <Property Name="StatusID" Type="Int32" />
+    <NavigationProperty Name="QuoteGarageOptions" Relationship="CarFixedModel.FK_QuoteGarageOption_QuoteID" FromRole="Quote" ToRole="QuoteGarageOption" />
+    <Property Name="QuoteEmailFrequencyID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="QuoteItemAdvRepair">
+    <Key>
+      <PropertyRef Name="QuoteItemAdvRepairID" />
+    </Key>
+    <Property Name="QuoteItemAdvRepairID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuoteID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ComponentDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OperationDescription" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EstimatedHours" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="EstimatedMinutes" Type="Int32" />
+    <Property Name="GReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Quote" Relationship="CarFixedModel.FK_QuoteItemAdvRepair_QuoteID" FromRole="QuoteItemAdvRepair" ToRole="Quote" />
+  </EntityType>
+  <EntityType Name="QuoteItemAdvService">
+    <Key>
+      <PropertyRef Name="QuoteItemAdvServiceID" />
+    </Key>
+    <Property Name="QuoteItemAdvServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuoteID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Miles" Type="Int32" />
+    <Property Name="Months" Type="Int32" />
+    <Property Name="EstimatedHours" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="EstimatedMinutes" Type="Int32" />
+    <Property Name="GReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Quote" Relationship="CarFixedModel.FK_QuoteItemAdvService_QuoteID" FromRole="QuoteItemAdvService" ToRole="Quote" />
+  </EntityType>
+  <EntityType Name="QuoteItemBasic">
+    <Key>
+      <PropertyRef Name="QuoteItemBasicID" />
+    </Key>
+    <Property Name="QuoteItemBasicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuoteID" Type="Int32" Nullable="false" />
+    <Property Name="BasicSubCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Quote" Relationship="CarFixedModel.FK_QuoteItemBasic_QuoteID" FromRole="QuoteItemBasic" ToRole="Quote" />
+    <Property Name="AdditionalInfo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BasicSubCategory" Relationship="CarFixedModel.FK_QuoteItemBasic_BasicSubCategoryID" FromRole="QuoteItemBasic" ToRole="BasicSubCategory" />
+  </EntityType>
+  <EntityType Name="QuoteUrgency">
+    <Key>
+      <PropertyRef Name="QuoteUrgencyID" />
+    </Key>
+    <Property Name="QuoteUrgencyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NoOfDays" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Quotes" Relationship="CarFixedModel.FK_Quote_QuoteUrgencyID" FromRole="QuoteUrgency" ToRole="Quote" />
+  </EntityType>
+  <Association Name="FK_Vehicle_CarFixedUserID">
+    <End Type="CarFixedModel.CarFixedUser" Role="CarFixedUser" Multiplicity="1" />
+    <End Type="CarFixedModel.Vehicle" Role="Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarFixedUser">
+        <PropertyRef Name="CarFixedUserID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="CarFixedUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quote_QuoteUrgencyID">
+    <End Type="CarFixedModel.QuoteUrgency" Role="QuoteUrgency" Multiplicity="1" />
+    <End Type="CarFixedModel.Quote" Role="Quote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuoteUrgency">
+        <PropertyRef Name="QuoteUrgencyID" />
+      </Principal>
+      <Dependent Role="Quote">
+        <PropertyRef Name="QuoteUrgencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quote_VehicleID">
+    <End Type="CarFixedModel.Vehicle" Role="Vehicle" Multiplicity="1" />
+    <End Type="CarFixedModel.Quote" Role="Quote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleID" />
+      </Principal>
+      <Dependent Role="Quote">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuoteItemAdvRepair_QuoteID">
+    <End Type="CarFixedModel.Quote" Role="Quote" Multiplicity="0..1" />
+    <End Type="CarFixedModel.QuoteItemAdvRepair" Role="QuoteItemAdvRepair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quote">
+        <PropertyRef Name="QuoteID" />
+      </Principal>
+      <Dependent Role="QuoteItemAdvRepair">
+        <PropertyRef Name="QuoteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuoteItemAdvService_QuoteID">
+    <End Type="CarFixedModel.Quote" Role="Quote" Multiplicity="0..1" />
+    <End Type="CarFixedModel.QuoteItemAdvService" Role="QuoteItemAdvService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quote">
+        <PropertyRef Name="QuoteID" />
+      </Principal>
+      <Dependent Role="QuoteItemAdvService">
+        <PropertyRef Name="QuoteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuoteItemBasic_QuoteID">
+    <End Type="CarFixedModel.Quote" Role="Quote" Multiplicity="1" />
+    <End Type="CarFixedModel.QuoteItemBasic" Role="QuoteItemBasic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quote">
+        <PropertyRef Name="QuoteID" />
+      </Principal>
+      <Dependent Role="QuoteItemBasic">
+        <PropertyRef Name="QuoteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="GarageService">
+    <Key>
+      <PropertyRef Name="GarageServiceID" />
+    </Key>
+    <Property Name="GarageServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GarageID" Type="Int32" Nullable="false" />
+    <Property Name="BasicCategoryID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BasicCategory" Relationship="CarFixedModel.FK_GarageService_BasicCategoryID" FromRole="GarageService" ToRole="BasicCategory" />
+    <NavigationProperty Name="Garage" Relationship="CarFixedModel.FK_GarageService_GarageID" FromRole="GarageService" ToRole="Garage" />
+  </EntityType>
+  <Association Name="FK_GarageService_BasicCategoryID">
+    <End Type="CarFixedModel.BasicCategory" Role="BasicCategory" Multiplicity="1" />
+    <End Type="CarFixedModel.GarageService" Role="GarageService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicCategory">
+        <PropertyRef Name="BasicCategoryID" />
+      </Principal>
+      <Dependent Role="GarageService">
+        <PropertyRef Name="BasicCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Postcode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Latitude" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="Longitude" Type="Decimal" Precision="9" Scale="6" />
+    <NavigationProperty Name="CarFixedUsers" Relationship="CarFixedModel.FK_CarFixedUser_AddressID" FromRole="Address" ToRole="CarFixedUser" />
+    <Property Name="Address1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Address3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Town" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="County" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Garages" Relationship="CarFixedModel.FK_Garage_AddressID" FromRole="Address" ToRole="Garage" />
+  </EntityType>
+  <Association Name="FK_CarFixedUser_AddressID">
+    <End Type="CarFixedModel.Address" Role="Address" Multiplicity="0..1" />
+    <End Type="CarFixedModel.CarFixedUser" Role="CarFixedUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="CarFixedUser">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GarageSelectByQuoteDistance_Result">
+    <Property Type="Int32" Name="GarageID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Postcode" Nullable="false" MaxLength="10" />
+    <Property Type="Decimal" Name="Latitude" Nullable="true" Precision="9" Scale="6" />
+    <Property Type="Decimal" Name="Longitude" Nullable="true" Precision="9" Scale="6" />
+    <Property Type="Double" Name="Distance" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
+    <Property Name="IsGarageStatus" Type="Boolean" />
+    <NavigationProperty Name="Garages" Relationship="CarFixedModel.FK_Garage_StatusID" FromRole="Status" ToRole="Garage" />
+    <Property Name="IsQuoteStatus" Type="Boolean" />
+    <Property Name="IsQuoteGarageOptionStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Garage">
+    <Key>
+      <PropertyRef Name="GarageID" />
+    </Key>
+    <Property Name="GarageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GarageRef" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AddressID" Type="Int32" />
+    <Property Name="IsVatRegistered" Type="Boolean" />
+    <Property Name="VatNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NoOfRamps" Type="Int32" />
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Address" Relationship="CarFixedModel.FK_Garage_AddressID" FromRole="Garage" ToRole="Address" />
+    <NavigationProperty Name="CarFixedUsers" Relationship="CarFixedModel.FK_CarFixedUser_GarageID" FromRole="Garage" ToRole="CarFixedUser" />
+    <NavigationProperty Name="Status" Relationship="CarFixedModel.FK_Garage_StatusID" FromRole="Garage" ToRole="Status" />
+    <NavigationProperty Name="GarageServices" Relationship="CarFixedModel.FK_GarageService_GarageID" FromRole="Garage" ToRole="GarageService" />
+    <NavigationProperty Name="Quotes" Relationship="CarFixedModel.FK_Quote_GarageID" FromRole="Garage" ToRole="Quote" />
+    <NavigationProperty Name="QuoteGarageOptions" Relationship="CarFixedModel.FK_QuoteGarageOption_GarageID" FromRole="Garage" ToRole="QuoteGarageOption" />
+  </EntityType>
+  <Association Name="FK_Garage_AddressID">
+    <End Type="CarFixedModel.Address" Role="Address" Multiplicity="0..1" />
+    <End Type="CarFixedModel.Garage" Role="Garage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="Garage">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarFixedUser_GarageID">
+    <End Type="CarFixedModel.Garage" Role="Garage" Multiplicity="0..1" />
+    <End Type="CarFixedModel.CarFixedUser" Role="CarFixedUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Garage">
+        <PropertyRef Name="GarageID" />
+      </Principal>
+      <Dependent Role="CarFixedUser">
+        <PropertyRef Name="GarageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Garage_StatusID">
+    <End Type="CarFixedModel.Status" Role="Status" Multiplicity="1" />
+    <End Type="CarFixedModel.Garage" Role="Garage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="Garage">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GarageService_GarageID">
+    <End Type="CarFixedModel.Garage" Role="Garage" Multiplicity="1" />
+    <End Type="CarFixedModel.GarageService" Role="GarageService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Garage">
+        <PropertyRef Name="GarageID" />
+      </Principal>
+      <Dependent Role="GarageService">
+        <PropertyRef Name="GarageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quote_GarageID">
+    <End Type="CarFixedModel.Garage" Role="Garage" Multiplicity="0..1" />
+    <End Type="CarFixedModel.Quote" Role="Quote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Garage">
+        <PropertyRef Name="GarageID" />
+      </Principal>
+      <Dependent Role="Quote">
+        <PropertyRef Name="GarageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="QuoteGarageOption">
+    <Key>
+      <PropertyRef Name="QuoteGarageOptionID" />
+    </Key>
+    <Property Name="QuoteGarageOptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuoteID" Type="Int32" Nullable="false" />
+    <Property Name="GarageID" Type="Int32" Nullable="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Distance" Type="Double" />
+    <NavigationProperty Name="Garage" Relationship="CarFixedModel.FK_QuoteGarageOption_GarageID" FromRole="QuoteGarageOption" ToRole="Garage" />
+    <NavigationProperty Name="Quote" Relationship="CarFixedModel.FK_QuoteGarageOption_QuoteID" FromRole="QuoteGarageOption" ToRole="Quote" />
+    <Property Name="DateQuoteSubmitted" Type="DateTime" Precision="3" />
+    <Property Name="QuoteSubmittedValue" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="StatusID" Type="Int32" />
+    <Property Name="IsQuoteSubmitted" Type="Boolean" Nullable="false" />
+    <Property Name="QuoteSubmittedMessage" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_QuoteGarageOption_GarageID">
+    <End Type="CarFixedModel.Garage" Role="Garage" Multiplicity="1" />
+    <End Type="CarFixedModel.QuoteGarageOption" Role="QuoteGarageOption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Garage">
+        <PropertyRef Name="GarageID" />
+      </Principal>
+      <Dependent Role="QuoteGarageOption">
+        <PropertyRef Name="GarageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuoteGarageOption_QuoteID">
+    <End Type="CarFixedModel.Quote" Role="Quote" Multiplicity="1" />
+    <End Type="CarFixedModel.QuoteGarageOption" Role="QuoteGarageOption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quote">
+        <PropertyRef Name="QuoteID" />
+      </Principal>
+      <Dependent Role="QuoteGarageOption">
+        <PropertyRef Name="QuoteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BasicSubCategoryGroup">
+    <Key>
+      <PropertyRef Name="BasicSubCategoryGroupID" />
+    </Key>
+    <Property Name="BasicSubCategoryGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BasicSubCategories" Relationship="CarFixedModel.FK_BasicSubCategory_BasicSubCategoryGroupID" FromRole="BasicSubCategoryGroup" ToRole="BasicSubCategory" />
+  </EntityType>
+  <EntityType Name="BasicSubCategoryRepairRef">
+    <Key>
+      <PropertyRef Name="BasicSubCategoryRepairRefID" />
+    </Key>
+    <Property Name="BasicSubCategoryRepairRefID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BasicSubCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="RepairRef" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BasicSubCategory" Relationship="CarFixedModel.FK_BasicSubCategoryRepairRef_BasicSubCategoryID" FromRole="BasicSubCategoryRepairRef" ToRole="BasicSubCategory" />
+  </EntityType>
+  <EntityType Name="BasicSubCategory">
+    <Key>
+      <PropertyRef Name="BasicSubCategoryID" />
+    </Key>
+    <Property Name="BasicSubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BasicCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="BasicSubCategoryGroupID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsLinkedToRepairTime" Type="Boolean" />
+    <Property Name="IsLinkedToService" Type="Boolean" />
+    <NavigationProperty Name="BasicCategory" Relationship="CarFixedModel.FK_BasicSubCategory_BasicCategoryID" FromRole="BasicSubCategory" ToRole="BasicCategory" />
+    <NavigationProperty Name="BasicSubCategoryGroup" Relationship="CarFixedModel.FK_BasicSubCategory_BasicSubCategoryGroupID" FromRole="BasicSubCategory" ToRole="BasicSubCategoryGroup" />
+    <NavigationProperty Name="BasicSubCategoryRepairRefs" Relationship="CarFixedModel.FK_BasicSubCategoryRepairRef_BasicSubCategoryID" FromRole="BasicSubCategory" ToRole="BasicSubCategoryRepairRef" />
+    <NavigationProperty Name="QuoteItemBasics" Relationship="CarFixedModel.FK_QuoteItemBasic_BasicSubCategoryID" FromRole="BasicSubCategory" ToRole="QuoteItemBasic" />
+  </EntityType>
+  <Association Name="FK_BasicSubCategory_BasicCategoryID">
+    <End Type="CarFixedModel.BasicCategory" Role="BasicCategory" Multiplicity="1" />
+    <End Type="CarFixedModel.BasicSubCategory" Role="BasicSubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicCategory">
+        <PropertyRef Name="BasicCategoryID" />
+      </Principal>
+      <Dependent Role="BasicSubCategory">
+        <PropertyRef Name="BasicCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BasicSubCategory_BasicSubCategoryGroupID">
+    <End Type="CarFixedModel.BasicSubCategoryGroup" Role="BasicSubCategoryGroup" Multiplicity="1" />
+    <End Type="CarFixedModel.BasicSubCategory" Role="BasicSubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicSubCategoryGroup">
+        <PropertyRef Name="BasicSubCategoryGroupID" />
+      </Principal>
+      <Dependent Role="BasicSubCategory">
+        <PropertyRef Name="BasicSubCategoryGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BasicSubCategoryRepairRef_BasicSubCategoryID">
+    <End Type="CarFixedModel.BasicSubCategory" Role="BasicSubCategory" Multiplicity="1" />
+    <End Type="CarFixedModel.BasicSubCategoryRepairRef" Role="BasicSubCategoryRepairRef" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicSubCategory">
+        <PropertyRef Name="BasicSubCategoryID" />
+      </Principal>
+      <Dependent Role="BasicSubCategoryRepairRef">
+        <PropertyRef Name="BasicSubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuoteItemBasic_BasicSubCategoryID">
+    <End Type="CarFixedModel.BasicSubCategory" Role="BasicSubCategory" Multiplicity="1" />
+    <End Type="CarFixedModel.QuoteItemBasic" Role="QuoteItemBasic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicSubCategory">
+        <PropertyRef Name="BasicSubCategoryID" />
+      </Principal>
+      <Dependent Role="QuoteItemBasic">
+        <PropertyRef Name="BasicSubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

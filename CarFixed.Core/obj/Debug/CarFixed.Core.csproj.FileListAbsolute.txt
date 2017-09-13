@@ -1,0 +1,6 @@
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\CarFixed.Core\bin\Debug\CarFixed.Core.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\CarFixed.Core\bin\Debug\CarFixed.Core.pdb
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\CarFixed.Core\bin\Debug\Geocoding.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\CarFixed.Core\obj\Debug\CarFixed.Core.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\CarFixed.Core\obj\Debug\CarFixed.Core.pdb
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\CarFixed.Core\obj\Debug\CarFixed.Core.csprojResolveAssemblyReference.cache

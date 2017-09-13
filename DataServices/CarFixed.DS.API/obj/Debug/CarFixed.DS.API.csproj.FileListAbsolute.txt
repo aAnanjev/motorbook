@@ -1,0 +1,9 @@
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.API\bin\Debug\CarFixed.DS.API.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.API\bin\Debug\CarFixed.DS.API.pdb
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.API\bin\Debug\CarFixed.DS.DM.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.API\bin\Debug\Newtonsoft.Json.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.API\bin\Debug\CarFixed.DS.DM.pdb
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.API\bin\Debug\Newtonsoft.Json.xml
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.API\obj\Debug\CarFixed.DS.API.csprojResolveAssemblyReference.cache
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.API\obj\Debug\CarFixed.DS.API.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.API\obj\Debug\CarFixed.DS.API.pdb

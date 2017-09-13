@@ -1,0 +1,5 @@
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DM\bin\Debug\CarFixed.DS.DM.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DM\bin\Debug\CarFixed.DS.DM.pdb
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DM\obj\Debug\CarFixed.DS.DM.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DM\obj\Debug\CarFixed.DS.DM.pdb
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DM\obj\Debug\CarFixed.DS.DM.csprojResolveAssemblyReference.cache

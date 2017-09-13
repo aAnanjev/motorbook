@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNet.Identity
+
+@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="hover-menu">
+
+        <ul class="nav hidden-menu">
+
+            @if (User.IsInRole("User"))
+            {
+                <li>@Html.ActionLink("My Quotes", "MyQuotes", "Account")</li>
+                <li>@Html.ActionLink("My Vehicles", "MyVehicles", "Account")</li>
+            }
+            @if (User.IsInRole("Mechanic"))
+            {
+                <li>@Html.ActionLink("Job Requests", "Index", "Garage")</li>
+            }
+
+            <li>@Html.ActionLink("My Details", "MyDetails", "Account")</li>
+
+
+
+            @if (User.IsInRole("Admin"))
+            {
+                <li>Admin</li>
+
+                <li>@Html.ActionLink("Home", "Index", "Admin")</li>
+                <li>@Html.ActionLink("Garage", "ViewGarages", "AdminGarage")</li>
+            }
+
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            @*<li>
+                    @Html.Kendo().Button().Name("add-button").Content("Add a job request").HtmlAttributes(new { type = "button", onclick = "Javascript:displayPopup()" })
+                </li>*@
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "MyQuotes", "Account", routeValues: null, htmlAttributes: new { title = "My Account" })
+            </li>
+        </ul>
+    </div>
+}
+
+@if (User.IsInRole("User"))
+{
+    @Html.Kendo().Button().Name("add-button").Content("Add a job request").HtmlAttributes(new { type = "button", onclick = "Javascript:displayPopup()" })
+}
+<script>
+    function displayPopup() {
+        $(".quote-popup").load("@Url.Action("QuoteForm", "Home")", function () {
+            $(".quote-popup").toggleClass("hidden");
+            $("html").toggleClass("noscroll");
+            $("#popup").toggleClass("active");
+        });
+    }
+</script>

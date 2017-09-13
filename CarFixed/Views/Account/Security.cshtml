@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Security";
+}
+
+<div id="security">
+    <h2>@ViewBag.Title.</h2>
+    
+        @Html.Partial("ChangePassword")
+    
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        @*$(function () {
+            $('#change-pw-form').submit(function () {
+                $.ajax({
+                    url: '@Url.Action("ChangePassword", "Account")',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        $('#change-pw-content').html(result);
+                    }
+                });
+            });
+        });*@
+    </script>
+}

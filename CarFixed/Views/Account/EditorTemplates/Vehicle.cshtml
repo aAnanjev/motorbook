@@ -1,0 +1,201 @@
+﻿@model CarFixed.DS.DM.Vehicle
+
+@if (true)
+{
+    <div class="new-layout">
+        @*<h3><span class="uppercase">@Model.VrmResponse.Make @Model.VrmResponse.Model @Model.VRM</span></h3>*@
+        @Html.HiddenFor(m => m.CarFixedUserID)
+        @Html.HiddenFor(m => m.VehicleID)
+
+        <div class="top-row">
+            <div class="car-info">
+                @* LEFT COLUMN *@
+                <h2>@Model.VrmResponse.Make @Model.VrmResponse.Model</h2>
+                @Html.Kendo().TextBoxFor(m => m.VRM).HtmlAttributes(new { @class = "vrm-input", disabled = "disabled" })
+            </div>
+            @* RIGHT COLUMN *@
+            <div class="car-details">
+                <span>@Model.VrmResponse.FuelType</span>
+                <span>
+                    @Model.VrmResponse.Year
+                </span>
+                <span>@Model.VrmResponse.Colour</span>
+            </div>
+        </div>
+
+        <div class="toggle hidden">
+            @if (Model.VrmResponse != null)
+                {
+                @* LOWER ROW *@
+                <div class="bottom-row">
+                    <div class="mot-advisories">
+
+                        <hr />
+                        <div class="mileage-info">
+                            Last Known Mileage: <span class="mot-miles">@Model.VrmResponse.LastMot.OdometerReading @Model.VrmResponse.LastMot.OdomoterUnits</span>
+                        </div>
+                        <div class="mot-info">
+                            <p>Mot Due: @Model.VrmResponse.LastMot.RenewalDate.ToString("dd/MM/yyyy")</p>
+                            <p>Tax Due: @Model.VrmResponse.TaxRenewalDate.Date.ToString("dd/MM/yyyy")</p>
+                        </div>
+                    </div>
+                    <div id="_DivMot">
+                    </div>
+
+                    @if (Model.VrmResponse.LastMot != null && Model.VrmResponse.LastMot.Advisories != null)
+                    {
+                        if (Model.VrmResponse.LastMot.Advisories.Count > 0)
+                        {
+                            <div class="advisories">
+
+                                <hr />
+                                <p>Have you fixed you recent advisories?</p>
+
+                                <ul>
+
+                                    @foreach (string adv in Model.VrmResponse.LastMot.Advisories)
+                                    {
+                                        <li>@adv</li>
+                                    }
+
+                                </ul>
+                            </div>
+                        }
+                    }
+
+                </div>
+            }
+            <div><i class="fa fa-trash-o fa-2x" onclick="Javascript:DeleteVehicle(@Model.VehicleID)"></i></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="accordion-container" id="vehicle-@Model.VehicleID">
+
+        <div class="accordion-item">
+            <h3><span class="uppercase">@Model.VrmResponse.Make @Model.VrmResponse.Model @Model.VRM</span></h3>
+            @Html.HiddenFor(m => m.CarFixedUserID)
+            @Html.HiddenFor(m => m.VehicleID)
+
+            <div class="accordion-content">
+                <div class="top-row">
+                    <div class="car-info">
+                        @* LEFT COLUMN *@
+                        <h2>@Model.VrmResponse.Make @Model.VrmResponse.Model</h2>
+                        @Html.Kendo().TextBoxFor(m => m.VRM).HtmlAttributes(new { @class = "vrm-input" })
+                    </div>
+                    @* RIGHT COLUMN *@
+                    <div class="car-details">
+                        <fieldset>
+                            <legend>Fuel Type</legend>
+
+                            <span>@Model.VrmResponse.FuelType</span>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Year</legend>
+
+                            <span>
+                                @Model.VrmResponse.Year
+                            </span>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Colour</legend>
+
+                            <span>@Model.VrmResponse.Colour</span>
+                        </fieldset>
+
+                    </div>
+                </div>
+
+                @if (Model.VrmResponse != null)
+                {
+                    @* LOWER ROW *@
+                    <div class="bottom-row">
+                        <div class="mot-advisories">
+
+                            <hr />
+                            <div class="mileage-info">
+                                Last Known Mileage: <span class="mot-miles">@Model.VrmResponse.LastMot.OdometerReading @Model.VrmResponse.LastMot.OdomoterUnits</span>
+                            </div>
+                            <div class="mot-info">
+                                <p>Mot Due: @Model.VrmResponse.LastMot.RenewalDate.ToString("dd/MM/yyyy")</p>
+                                <p>Tax Due: @Model.VrmResponse.TaxRenewalDate.Date.ToString("dd/MM/yyyy")</p>
+                            </div>
+                        </div>
+                        <div id="_DivMot">
+                        </div>
+
+                        @if (Model.VrmResponse.LastMot != null && Model.VrmResponse.LastMot.Advisories != null)
+                    {
+                        if (Model.VrmResponse.LastMot.Advisories.Count > 0)
+                        {
+                                <div class="advisories">
+
+                                    <hr />
+                                    <p>Have you fixed you recent advisories?</p>
+
+                                    <ul>
+
+                                        @foreach (string adv in Model.VrmResponse.LastMot.Advisories)
+                                        {
+                                            <li>@adv</li>
+                                        }
+
+                                    </ul>
+                                </div>
+                            }
+                        }
+
+                    </div>
+                }
+                <div><i class="fa fa-trash-o fa-2x" onclick="Javascript:DeleteVehicle(@Model.VehicleID)"></i></div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+
+    $(document).ready(function () {
+
+        $.ajax({
+            url: '@Url.Action("RemoveVehicle", "Account")',
+            type: 'post',
+            data: '{ vehicleId: "' + id + '"}',
+            contentType: 'application/json',
+            success: function (result) {
+                if (result.success) {
+                    $('#vehicle-' + id).addClass("hidden");
+                }
+                else {
+
+                }
+            }
+        });
+
+    });
+
+    $('.accordion-item h3').unbind().click(function () {
+
+        $(this).siblings(".accordion-content").slideToggle("slow");
+
+    });
+
+    function DeleteVehicle(id) {
+        debugger;
+        $.ajax({
+            url: '@Url.Action("RemoveVehicle", "Account")',
+            type: 'post',
+            data: '{ vehicleId: "' + id + '"}',
+            contentType: 'application/json',
+            success: function (result) {
+                if (result.success) {
+                    $('#vehicle-' + id).addClass("hidden");
+                }
+                else {
+
+                }
+            }
+        });
+    }
+</script>

@@ -1,0 +1,25 @@
+﻿@model BasicSubCategoryServiceModel
+
+@using CarFixed.Models;
+@using CarFixed.DS.DM;
+@using AutoGuru.Assistant.ThirdParty.AutoData.Models;
+@using AutoGuru.Data.Vehicle.Services;
+
+
+<h2>Services</h2>
+
+@foreach (ServiceRegime regime in Model.ServiceWrapper.ServiceRegimes)
+{
+    <div>
+        @if (!String.IsNullOrEmpty(regime.ServiceScheduleDescription))
+        {
+            <p class= "description">@String.Format("{0}", regime.ServiceScheduleDescription)</p>
+        }
+        else if (!String.IsNullOrEmpty(regime.ServiceMiles) && !String.IsNullOrEmpty(regime.ServiceMonths))
+        {
+            <p class= "description">@String.Format("{0} miles / {1} months", regime.ServiceMiles, regime.ServiceMonths)</p>
+        }
+        <p class="estimation">Estimated Time: @String.Format("{0} hours", regime.ServiceTimeHours)</p>
+        <hr />
+    </div>
+}         

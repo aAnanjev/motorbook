@@ -1,0 +1,958 @@
+﻿@import url('variables.less');
+@import "mixins";
+
+.full-screen-background {
+    height: 100%;
+    height: calc(~"100vh - 59px");
+    height: -o-calc(~"100vh - 59px"); /* opera */
+    height: -webkit-calc(~"100vh - 59px"); /* google, safari */
+    height: -moz-calc(~"100vh - 59px"); /* firefox */
+    background-size: 100% 100%;
+}
+
+.homepage {
+    .background-linear();
+    .background-size(cover);    
+    background-position: 65% 0%;
+
+    h1 {
+        font-size: @universal-h1-size;
+    }
+
+    h2 {
+        font-size: @universal-h2-size;
+    }
+
+    #header {
+        text-align: center;
+        color: #fff;
+        padding-top: 15px;
+    }
+
+    #main-form {
+        position: absolute;
+        width: 220px;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        margin: 0 0 0 -100px;
+
+        label {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .vrm-input {
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            font-size: 20px;
+        }
+    }
+}
+
+.placeholder{
+    height: 400px;
+
+    background: -moz-linear-gradient(rgba(82,100,174,0.45) 40%,rgba(255,255,255,.00)),url('/Content/Images/quote-background.jpg');
+    background: -webkit-linear-gradient(rgba(82,100,174,0.45) 40%,rgba(255,255,255,.00)),url('/Content/Images/quote-background.jpg');
+    background: -o-linear-gradient(rgba(82,100,174,0.45) 40%,rgba(255,255,255,.00)),url('/Content/Images/quote-background.jpg');
+    background: -ms-linear-gradient(rgba(82,100,174,0.45) 40%,rgba(255,255,255,.00)),url('/Content/Images/quote-background.jpg');
+    background: linear-gradient(rgba(82,100,174,0.45) 40%,rgba(255,255,255,.00)),url('/Content/Images/quote-background.jpg');
+    
+    background-size: 100% 100%;
+    background-attachment: fixed;
+
+    color: #fff;
+    text-align: center;
+
+    h1{
+        padding-top: 100px;
+        margin-bottom: 50px;
+    }
+}
+
+.vrm-input {
+    font-weight: bold;
+    font-family: UKNumberPlate !important;
+    font-size: 30px !important;
+    text-align: center;
+    width: 218px !important;
+    height: 40px !important;
+    text-transform: uppercase;
+    background: url('Images/uk-reg.png') no-repeat scroll center !important;
+    background-size: 220px 40px !important;
+}
+
+.one-third-column {
+    width: 100%;
+    margin: 10px 0;
+}
+
+/*=============== HOW IT WORKS =============== */
+.howiw {
+    color: @main-fontcolor;
+    font-family: @main-fontfamily;
+    text-align: center;
+
+    h1 {
+        margin-top: @universal-h1-size;
+    }
+
+    h2 {
+        font-size: @universal-h2-size;
+    }
+
+    .slider {
+        margin: 0 0 25px 0;
+
+        .slick-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+        }
+
+        .prev {
+            left: -28px;
+            display: none !important;
+        }
+
+        .next {
+            right: -28px;
+            display: none !important;
+        }
+
+        .howto-info {
+            width: 100%;
+            height: 170px;
+            padding-top: 10%;
+
+            h2 {
+                font-size: 40px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 20px;
+                width: 95%;
+            }
+        }
+
+        .howto-img {
+            width: 100%;
+            float: left;
+
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+/*=================== QUOTE ===================*/
+.quote-background {
+    background-image: url('Images/quote-background.jpg');
+    height: calc(~"100vh - 59px");
+    height: -o-calc(~"100vh - 59px"); /* opera */
+    height: -webkit-calc(~"100vh - 59px"); /* google, safari */
+    height: -moz-calc(~"100vh - 59px"); /* firefox */
+    background-size: cover;
+    color: #FFF;
+    text-align: center;
+    padding-top: 10%;
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    .large-quote-form {
+        width: 100%;
+        margin: auto;
+    }
+
+    button {
+        width: 350px;
+        max-width: 100%;
+        height: 45px;
+    }
+
+    span.k-widget.k-dropdown.k-header {
+        width: 350px;
+        max-width: 100%;
+    }
+
+    .k-animation-container {
+        max-width: 100%;
+        padding: 0 !important;
+    }
+
+    #postcode {
+        text-transform: uppercase;
+    }
+
+    .press {
+        padding-top: 10px;
+        clear: both;
+    }
+}
+
+/* =========== TERMS AND CONDITIONS ===========*/
+#TnC {
+    width: 1024px;
+    max-width: 100%;
+    margin: auto;
+    color: #000;
+
+    h1 {
+        font-size: 25px;
+        margin: 15px 0;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin: 15px 0;
+    }
+
+    p {
+        font-size: 17px;
+        margin: 10px 0;
+    }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 25px;
+    }
+
+    .tnc-info {
+        margin-top: 25px;
+        color: #7F7F7F;
+    }
+}
+
+/*=================== FOOTER ==================*/
+.footer {
+    padding: 25px 0 0 0;
+    text-align: center;
+
+    .footer-menu {
+        margin-bottom: 25px;
+
+        li {
+            display: inline-block;
+            margin: 0 0 10px 15px;
+
+            a {
+                color: @main-fontcolor;
+
+                &:hover {
+                    color: #417cb8;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+@media (max-height: 320px) and (min-aspect-ratio: 1/1) { /* landscape styles here */
+    .full-screen-background {
+        min-height: 320px;
+
+        #main-form {
+            position: initial !important;
+            top: 0 !important;
+            margin: 35px auto !important;
+        }
+    }
+}
+
+@media @teeny-tiny-phone { /* smartphones, iPhone, portrait 480x320 phones */
+}
+
+@media @smartphone { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+
+    /*=================== FOOTER ==================*/
+    .footer {
+        padding: 25px 0 0 50px;
+        text-align: center;
+
+        .footer-menu {
+            margin-bottom: 25px;
+
+            li {
+                display: inline-block;
+                margin-left: 15px;
+
+                a {
+                    color: @main-fontcolor;
+
+                    &:hover {
+                        color: #417cb8;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    /*=============== HOW IT WORKS =============== */
+    .howiw {
+        color: @main-fontcolor;
+        font-family: @main-fontfamily;
+        text-align: center;
+
+        h1 {
+            margin-top: @universal-h1-size;
+        }
+
+        h2 {
+            font-size: @universal-h2-size;
+        }
+
+        .slider {
+            margin: 20px 0 25px 0;
+
+            .slick-arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 2;
+            }
+
+            .prev {
+                left: -28px;
+                display: none !important;
+            }
+
+            .next {
+                right: -28px;
+                display: none !important;
+            }
+
+            .howto-info {
+                width: 50%;
+                height: 170px;
+                float: right;
+                padding-top: 4%;
+
+                h2 {
+                    font-size: 40px;
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    font-size: 20px;
+                    width: 95%;
+                }
+            }
+
+            .howto-img {
+                width: 50%;
+                float: left;
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    /* ================= HOME PAGE ================*/
+    .homepage {
+        background-image: linear-gradient(rgba(82,100,174,0.45) 40%,rgba(255,255,255,.00)),url('Images/background.jpg');
+        background-size: cover;
+        background-position: 65% 0%;
+
+        h1 {
+            font-size: @universal-h1-size;
+        }
+
+        h2 {
+            font-size: @universal-h2-size;
+        }
+
+        #header {
+            text-align: center;
+            color: #fff;
+            padding-top: 0;
+        }
+
+        #main-form {
+            position: absolute;
+            width: 220px;
+            top: 53%;
+            left: 50%;
+            text-align: center;
+            margin: -36px 0 0 -100px;
+
+            label {
+                color: #fff;
+                font-size: 20px;
+            }
+
+            .vrm-input {
+                margin: 10px 0;
+            }
+
+            button {
+                width: 100%;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .one-third-column {
+        margin: 15px 0;
+    }
+
+    /*=================== QUOTE ===================*/
+    .quote-background {
+        height: auto;
+        padding-top: 0;
+        padding-bottom: 1%;
+    }
+}
+
+@media @landscape-phone { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .quote-background {
+        button {
+            width: auto !important;
+            max-width: 100%;
+            height: 45px;
+        }
+    }
+
+    /*=============== HOW IT WORKS =============== */
+    .howiw {
+        .slider {
+            .prev, .next {
+                display: none !important;
+            }
+
+            .howto-info {
+                width: 50%;
+                height: 170px;
+                float: right;
+                padding-top: 2%;
+            }
+
+            .howto-img {
+                width: 50%;
+                float: left;
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media @portrait-tablets { /* END OF LANDSCAPE DESIGN */
+
+    .homepage {
+        background-image: linear-gradient(rgba(82,100,174,0.45) 40%,rgba(255,255,255,.00)),url('Images/background.jpg');
+        background-size: cover;
+
+        h1 {
+            font-size: @universal-h1-size-large;
+        }
+
+        h2 {
+            font-size: @universal-h2-size-large;
+        }
+
+        #header {
+            text-align: center;
+            color: #fff;
+            padding-top: 200px; //TODO: Make sure this look ah-rite
+        }
+
+        #main-form {
+            position: absolute;
+            width: 220px;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            margin: 0 0 0 -100px;
+
+            label {
+                color: #fff;
+                font-size: 20px;
+            }
+
+            .vrm-input {
+                margin: 10px 0;
+            }
+
+            button {
+                width: 100%;
+                font-size: 20px;
+            }
+        }
+    }
+
+    /*=============== HOW IT WORKS =============== */
+    .howiw {
+        color: @main-fontcolor;
+        font-family: @main-fontfamily;
+        text-align: center;
+
+        h1 {
+            margin-top: @universal-h1-size;
+        }
+
+        h2 {
+            font-size: @universal-h2-size;
+        }
+
+        .slider {
+            margin: 0 0 25px 0;
+
+            .slick-arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 2;
+            }
+
+            .prev {
+                left: -28px;
+                display: none !important;
+            }
+
+            .next {
+                right: -28px;
+                display: none !important;
+            }
+
+            .howto-info {
+                width: 100%;
+                height: 170px;
+                padding-top: 10%;
+
+                h2 {
+                    font-size: 40px;
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    font-size: 20px;
+                    width: 95%;
+                }
+            }
+
+            .howto-img {
+                width: 100%;
+                float: left;
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    /*=================== QUOTE ===================*/
+    .quote-background {
+        height: 50vh;
+        padding-top: 10%;
+        padding-bottom: 0;
+    }
+}
+
+@media @large-tablets { /* tablet, landscape iPad, lo-res laptops ands desktops */
+    /* TODO: check HOW IT WORKS Slider on Tablet!!! */
+
+    .one-third-column {
+        width: 33%;
+        float: left;
+    }
+}
+
+@media @landscape-tablets { /* big landscape tablets, laptops, and desktops */
+
+    /*=============== HOW IT WORKS =============== */
+    .howiw {
+        color: @main-fontcolor;
+        font-family: @main-fontfamily;
+        text-align: center;
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        h3 {
+            font-size: 25px;
+        }
+
+        .slider {
+            width: 1024px;
+            margin: 50px auto;
+            height: 350px;
+
+
+            .slick-arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 2;
+            }
+
+            .prev {
+                /// TODO: On 1025px HOW IT WORKS arrows appear, needs solution!!!
+                left: 0;
+                display: block !important;
+            }
+
+            .next {
+                right: 0;
+                display: block !important;
+            }
+
+            .howto-info {
+                float: right;
+                width: 40%;
+                padding-top: 10%;
+
+                h2 {
+                    font-size: 40px;
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    font-size: 20px;
+                    width: 95%;
+                }
+            }
+
+            .howto-img {
+                width: 60%;
+                float: left;
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    #main-form {
+        position: initial;
+        width: 220px;
+        top: 0;
+        left: 0;
+        text-align: center;
+        margin: 6% 0 0 38%;
+
+        button {
+            width: auto !important;
+        }
+    }
+
+    /* ========= MAIN PAGE HEADER =============*/
+    .homepage {
+        #header {
+            padding-top: 100px;
+        }
+    }
+
+    
+    /*=============== DROPDOWN MENU ===============*/
+    .hover-menu {
+        position: relative;
+
+        &:hover .hidden-menu {
+            display: block;
+        }
+
+        .hidden-menu {
+            display: none;
+            top: 50px;
+            right: 0;
+            width: 225px;
+            position: absolute;
+            font-family: @main-fontfamily;
+            background-color: @main-fontcolor;
+            color: @main-fontcolor;
+            font-size: 18px;
+            border-radius: 6px;
+
+            &:after { /* ====== MENU ARROW =======*/
+                position: absolute;
+                left: 50%;
+                margin-left: -6px;
+                top: -12px;
+                width: 0;
+                height: 0;
+                content: '';
+                border-left: 12px solid transparent;
+                border-right: 12px solid transparent;
+                border-bottom: 12px solid @main-fontcolor;
+            }
+
+            li {
+                background-color: #fff;
+                text-align: center;
+                border-radius: 3px;
+                margin: 3px;
+
+                &:hover {
+                    background-color: #E5E5E5;
+                }
+
+                a {
+                    display: block;
+                    padding: 6px 0;
+                    color: @main-fontcolor;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media @laptops { /* hi-res laptops and desktops */
+
+    .homepage {
+        .background-linear();
+        .background-size(cover);
+
+        h1 {
+            font-size: @universal-h1-size-medium;
+        }
+
+        h2 {
+            font-size: @universal-h2-size-medium;
+        }
+
+        #header {
+            text-align: center;
+            color: #fff;
+            padding-top: 100px;
+        }
+
+        #main-form {
+            position: initial;
+            width: 220px;
+            top: 0;
+            left: 0;
+            text-align: center;
+            margin: 6% auto;
+
+            label {
+                color: #fff;
+                font-size: 20px;
+            }
+
+            .vrm-input {
+                margin: 10px 0;
+            }
+
+            button {
+                width: auto;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .vrm-input {
+        font-weight: bold;
+        font-family: UKNumberPlate !important;
+        font-size: 30px !important;
+        text-align: center;
+        width: 218px !important;
+        height: 40px !important;
+        text-transform: uppercase;
+        background: url('Images/uk-reg.png') no-repeat scroll center !important;
+        background-size: 220px 40px !important;
+    }
+
+    .one-third-column {
+        width: 33%;
+        float: left;
+    }
+
+    /*=============== HOW IT WORKS =============== */
+    .howiw {
+        color: @main-fontcolor;
+        font-family: @main-fontfamily;
+        text-align: center;
+
+        h1 {
+            margin-top: @universal-h1-size;
+        }
+
+        h2 {
+            font-size: @universal-h2-size;
+        }
+
+        .slider {
+            width: 1024px;
+            margin: 50px auto;
+            height: 350px;
+
+
+            .slick-arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 2;
+            }
+
+            .prev {
+                left: -28px;
+                display: block !important;
+            }
+
+            .next {
+                right: -28px;
+                display: block !important;
+            }
+
+            .howto-info {
+                float: right;
+                width: 39%;
+                padding-top: 10%;
+
+                h2 {
+                    font-size: 40px;
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    font-size: 20px;
+                    width: 95%;
+                }
+            }
+
+            .howto-img {
+                width: 60%;
+                float: left;
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    /*=================== QUOTE ===================*/
+    .quote-background {
+        background-image: url('Images/quote-background.jpg');
+        height: 75vh;
+        color: #FFF;
+        text-align: center;
+        padding-top: 15%;
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .large-quote-form {
+            width: 60%;
+            margin: auto;
+        }
+
+        span.k-widget.k-dropdown.k-header {
+            width: 350px;
+        }
+
+        #postcode {
+            text-transform: uppercase;
+        }
+
+        .press {
+            padding-top: 10px;
+            clear: both;
+        }
+    }
+
+    /*=================== FOOTER ==================*/
+    .footer {
+        padding: 25px 0 0 50px;
+        text-align: center;
+
+        .footer-menu {
+            margin-bottom: 25px;
+
+            li {
+                display: inline-block;
+                margin-left: 15px;
+
+                a {
+                    color: @main-fontcolor;
+
+                    &:hover {
+                        color: #417cb8;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    /*=============== DROPDOWN MENU ===============*/
+    .hover-menu {
+        position: relative;
+
+        &:hover .hidden-menu {
+            display: block;
+        }
+
+        .hidden-menu {
+            display: none;
+            top: 50px;
+            right: 0;
+            width: 225px;
+            position: absolute;
+            font-family: @main-fontfamily;
+            background-color: @main-fontcolor;
+            color: @main-fontcolor;
+            font-size: 18px;
+            border-radius: 6px;
+
+            &:after { /* ====== MENU ARROW =======*/
+                position: absolute;
+                left: 50%;
+                margin-left: -6px;
+                top: -12px;
+                width: 0;
+                height: 0;
+                content: '';
+                border-left: 12px solid transparent;
+                border-right: 12px solid transparent;
+                border-bottom: 12px solid @main-fontcolor;
+            }
+
+            li {
+                background-color: #fff;
+                text-align: center;
+                border-radius: 3px;
+                margin: 3px;
+
+                &:hover {
+                    background-color: #E5E5E5;
+                }
+
+                a {
+                    display: block;
+                    padding: 6px 0;
+                    color: @main-fontcolor;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media @large-desktop {
+    .homepage {
+        #header {
+            padding-top: 200px;
+        }
+    }
+}

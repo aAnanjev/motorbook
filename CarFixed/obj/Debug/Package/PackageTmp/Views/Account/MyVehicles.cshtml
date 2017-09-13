@@ -1,0 +1,16 @@
+﻿@model CarFixed.DS.DM.CarFixedUser
+
+@{
+    ViewBag.Title = "My Vehicles";
+}
+<script>
+    $(document).ready(function () {
+        $('.account-tab-menu .vehicles').addClass("open-tab");
+    });
+</script>
+
+@Html.Partial("_MyAccountMenu")
+
+<div class="vehicles">
+    @Html.EditorFor(m => m.Vehicles)
+</div>

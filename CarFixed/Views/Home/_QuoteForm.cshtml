@@ -1,0 +1,249 @@
+﻿@model CarFixed.Models.QuoteModel
+@using Microsoft.AspNet.Identity
+
+<script src="~/Scripts/quoteForm.validation.js"></script>
+
+<form id="_FrmSubmit">
+
+   @*@Html.HiddenFor(m => m.model, new { @id = "_HdnQuoteFormModel" })*@
+    @*@Html.HiddenFor(m => m.year, new { @id = "_HdnQuoteFormYear" })*@
+    @*@Html.HiddenFor(m => m.fuelType, new { @id = "_HdnQuoteFormFuelType" })*@
+   @Html.HiddenFor(m => m.IsNewUser, new { @id = "_HdnIsNewUser" })
+
+    <div id="popup">
+        <div>
+            <div class="button close"><i class="fa fa-close"></i></div>
+            <div id="page1">
+
+                @Html.Kendo().TextBoxFor(m => m.vrm).HtmlAttributes(new { @id = "quote-vrm", @class = "vrm-input", placeholder = "Your Reg", autocomplete = "off" })
+                @Html.HiddenFor(m => m.modeltype)
+                @Html.HiddenFor(m => m.make)
+                @Html.HiddenFor(m => m.fuelType)
+                @Html.HiddenFor(m => m.year)
+
+                <div class="vehicle-details hidden">
+                    <div class="vehicle-details-inner">
+                        Make: <label class="make">@Model.make</label><br />
+                        Model: <label class="model">@Model.modeltype</label><br />
+                        Year: <label class="year">@Model.year</label><br />
+                        Fuel Type: <label class="fuel">@Model.fuelType</label>
+                    </div>
+                    <div class="wrong-car-button">                        
+                        <a href="Javascript:wrongCar()">Wrong car?</a>
+                    </div>
+                    @*@if (Request.IsAuthenticated)
+                    {
+                        <div>
+                            <a href="Javascript:useMyCar(@User.Identity.GetUserId())">Use my car</a>
+                        </div>
+                    }*@
+                </div>
+                @Html.Kendo().TextBoxFor(m => m.Postcode).HtmlAttributes(new { placeholder = "Your Postcode" })
+
+                <div>
+                    @Html.Kendo().Button().Name("Close").Content("Close").HtmlAttributes(new { type = "button", onclick = "Javascript:firstPageClose()" })
+                    @Html.Kendo().Button().Name("Next").Content("Next").HtmlAttributes(new { type = "button", onclick = "Javascript:firstPageNext()" })
+
+
+                    @*@Html.Kendo().Button().Name("Next").Content("Next").HtmlAttributes(new { @type = "submit" })*@
+                </div>
+            </div>
+            <div id="page2" class="hidden">
+                <div class="vehicle-details">
+                    <div class="vehicle-details-inner">
+                        Make: <label class="make">@Model.make</label><br />
+                        Model: <label class="model">@Model.modeltype</label><br />
+                        Year: <label class="year">@Model.year</label><br />
+                        Fuel Type: <label class="fuel">@Model.fuelType</label>
+                    </div>
+                </div>
+                <div>
+                    <label>What kind of service do you need?</label>
+
+                    @(Html.Kendo().DropDownListFor(m => m.CategoryId)
+                    .HtmlAttributes(new { id = "_DrpCategory", placeholder = "Select Service" })
+                    .DataTextField("Title")
+                    .DataValueField("BasicCategoryID")
+                    .Filter(FilterType.Contains)
+                    .DataSource(source =>
+                    {
+                        source.Read(read =>
+                        {
+                            read.Action("GetCategories", "Quote");
+                        });
+                    })
+                    )
+
+                </div>
+                <div>
+                    <label>We need more specificity:</label>
+
+                    @(Html.Kendo().DropDownListFor(m => m.SubCategoryId)
+                    .HtmlAttributes(new { id = "_DrpSubCategory", placeholder = "Select Sub Service" })
+                    .DataTextField("Title")
+                    .DataValueField("BasicSubCategoryID")
+                    .Filter(FilterType.Contains)
+                    .Enable(false)
+                    .AutoBind(false)
+                    .CascadeFrom("_DrpCategory")
+                    .DataSource(source =>
+                    {
+                        source
+                        .Custom()
+                        .Group(g => g.Add("BasicSubCategoryGroup.Title", typeof(string)))
+                        .Transport(transport => transport.Read(read =>
+                            {
+                                read.Action("GetSubCategories", "Quote").Data("filterSubCats");
+                            })).ServerFiltering(true);
+                    })
+                    //.Events(e =>
+                    //{
+                    //    e.Select("_DrpSubCategory_OnSelect");
+                    //})
+                    )
+
+                </div>
+                <div>
+                    <label>Describe the issue (optional):</label>
+
+                    @Html.TextAreaFor(m => m.Description, new { @class = "k-textbox", placeholder = "Additional information will get you more accurate quote!" })
+
+                    @*@Html.TextArea("desription", "", new { @class = "k-textbox", placeholder = "Additional information will get you more accurate quote!" })*@
+                </div>
+                <div>
+                    @Html.Kendo().Button().Name("Back").Content("Back").HtmlAttributes(new { type = "button", onclick = "Javascript:secondPageBack()" })
+                    @Html.Kendo().Button().Name("Next2").Content("Next").HtmlAttributes(new { type = "button", onclick = "Javascript:secondPageNext()" })
+                </div>
+            </div>
+            <div id="page3" class="hidden">
+                <div class="estimates-content">
+                    <div id="_DivBasicSubCategoryTimes" data-request-url="@Url.Action("GetBasicSubCategoryRepairEstimatedTimes", "Quote")"></div>
+                    <div id="_DivBasicSubCategoryServices" data-request-url="@Url.Action("GetBasicSubCategoryServiceEstimatedTimes", "Quote")"></div>
+                </div>
+                <div>
+                    @Html.Kendo().Button().Name("Back2").Content("Back").HtmlAttributes(new { type = "button", onclick = "Javascript:thirdPageBack()" })
+                    @Html.Kendo().Button().Name("Next3").Content("Next").HtmlAttributes(new { type = "button", onclick = "Javascript:thirdPageNext()" })
+                </div>
+            </div>
+            <div id="page4" class="hidden">
+                <div class="switch-field">
+                    <input type="radio" id="switch_left" name="user-type" value="new user" checked />
+                    <label for="switch_left">New User</label>
+                    <input type="radio" id="switch_right" name="user-type" value="existing user" />
+                    <label for="switch_right">Existing User</label>
+                </div>
+
+                <div id="new-user-form">
+                    <div>
+                        <label></label>
+                        @Html.Kendo().TextBoxFor(m => m.Firstname).HtmlAttributes(new { placeholder = "First Name" })
+                    </div>
+                    <div>
+                        <label></label>
+                        @Html.Kendo().TextBoxFor(m => m.Lastname).HtmlAttributes(new { placeholder = "Last Name" })
+                    </div>
+                    <div>
+                        <label></label>
+                        @Html.Kendo().TextBoxFor(m => m.Email).HtmlAttributes(new { placeholder = "E-mail", type = "email" })
+                    </div>
+                    <div>
+                        <label></label>
+                        @Html.Kendo().TextBoxFor(m => m.Telephone).HtmlAttributes(new { placeholder = "Telephone Number" })
+                    </div>
+                    <div>
+                        <label></label>
+                        @Html.Kendo().TextBoxFor(m => m.Password).HtmlAttributes(new { placeholder = "Password", type = "password" })
+                    </div>
+                </div>
+                <div id="existing-user-form" class="hidden">
+                    <div>
+                        <label></label>
+                        @Html.Kendo().TextBoxFor(m => m.ExistingUserEmail).HtmlAttributes(new { placeholder = "E-mail", type = "email", required = "required", disabled = "disabled" })
+                    </div>
+                    <div>
+                        <label></label>
+                        @Html.Kendo().TextBoxFor(m => m.ExistingUserPassword).HtmlAttributes(new { placeholder = "Password", type = "password", required = "required", disabled = "disabled" })
+                    </div>
+                </div>
+                <div>
+                    @Html.Kendo().Button().Name("Back3").Content("Back").HtmlAttributes(new { type = "button", onclick = "Javascript:fourthPageBack()" })
+                    @Html.Kendo().Button().Name("Send").Content("Send").HtmlAttributes(new { type = "button", onclick = String.Format("Javascript:fourthPageSend('{0}')", Url.Action("QuoteFormSubmit")) })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+
+</form>
+
+<script>
+    $('#quote-vrm').change(function () {
+        var vrm = $("#quote-vrm").val();
+        if (vrm != "") {
+            $.ajax({
+                url: '@Url.Action("DoVRMLookup", "Quote")',
+                type: 'POST',
+                data: '{ vrm: "' + $("#quote-vrm").val() + '"}',
+                contentType: 'application/json',
+                success: function (data) {
+                    if (data.status == "Confirmed") {
+                        $('.make').text(data.data.Make);
+                        $("#_HdnQuoteFormMake").val(data.data.Make);
+
+                        $('.model').text(data.data.Model);
+                        $("#_HdnQuoteFormModel").val(data.data.Model);
+
+                        $('.year').text(data.data.Year);
+                        $("#_HdnQuoteFormYear").val(data.data.Year);
+
+                        $('.fuel').text(data.data.FuelType);
+                        $("#_HdnQuoteFormFuelType").val(data.data.FuelType);
+
+                        $(".vehicle-details").removeClass("hidden");
+
+                        check = data.data.Vrm;
+                    }
+                    else if (data.status == "Failed") {
+                        /* MANUAL LOOKUP CODE */
+                    }
+                }
+            })
+        }
+        else {
+            $(".vehicle-details").addClass("hidden");
+            /* MANUAL LOOKUP CODE */
+        }
+    });
+
+    $('input[type=radio][name=user-type]').change(function () {
+
+
+        if (this.value == 'new user') {
+            $('#new-user-form div input').attr("disabled", false);
+            $('#existing-user-form div input').attr("disabled", true);
+            $('#new-user-form').removeClass("hidden");
+            $('#existing-user-form').addClass("hidden");
+            $('#_HdnIsNewUser').val('True');
+        }
+        else if (this.value == 'existing user') {
+            $('#new-user-form div input').attr("disabled", true);
+            $('#existing-user-form div input').attr("disabled", false);
+            $('#existing-user-form').removeClass("hidden");
+            $('#new-user-form').addClass("hidden");
+            $('#_HdnIsNewUser').val('False');
+
+        }
+    });
+
+    //function _DrpSubCategory_OnSelect(e) {
+       
+    //        if (e.item) {
+    //            var dataItem = this.dataItem(e.item);
+    //            //get times
+    //        } else {
+    //            //Clear Dic
+    //        }
+        
+    //}
+</script>

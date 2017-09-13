@@ -1,0 +1,12 @@
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DAL\bin\Debug\CarFixed.DS.DAL.dll.config
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DAL\bin\Debug\CarFixed.DS.DAL.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DAL\bin\Debug\CarFixed.DS.DAL.pdb
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DAL\bin\Debug\CarFixed.DS.DM.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DAL\bin\Debug\EntityFramework.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DAL\bin\Debug\CarFixed.DS.DM.pdb
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DAL\bin\Debug\EntityFramework.xml
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DAL\obj\Debug\CarFixed.DS.DAL.csprojResolveAssemblyReference.cache
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DAL\obj\Debug\CarFixed.DS.DAL.dll
+C:\Users\aleks\Desktop\Alex\Car Fixed\CarFixed\CarFixed-DEV\DataServices\CarFixed.DS.DAL\obj\Debug\CarFixed.DS.DAL.pdb

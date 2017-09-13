@@ -1,0 +1,1005 @@
+﻿@import url('variables.less');
+
+body {
+    padding-top: 59px;
+
+    .container {
+        margin: 0;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .navbar-inverse .navbar-toggle .icon-bar {
+        background-color: @main-fontcolor !important;
+    }
+}
+
+.navbar-collapse {
+    text-align: center;
+}
+
+/* ==============  HEADER STYLE ==================*/
+h1 {
+    font-size: @universal-h1-size;
+    font-weight: bold;
+    font-family: @main-fontfamily;
+}
+
+h2 {
+    font-size: @universal-h2-size;
+    font-weight: bold;
+    font-family: @main-fontfamily;
+}
+/* ==============  BUTTON STYLE ==================*/
+section.press button {
+    color: #fff;
+    background-color: #6496c8;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 3px #27496d !important;
+
+    &:hover {
+        background-color: #417cb8;
+        color: #fff;
+    }
+
+    &:active {
+        background-color: #417cb8 !important;
+        box-shadow: 0 0.5px #27496d !important;
+        transform: translateY(3px);
+        color: #fff !important;
+    }
+}
+
+button {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    padding: 0px 65px;
+    font-size: 20px;
+    font-family: @main-fontfamily;
+    line-height: 1.8;
+    appearance: none;
+    box-shadow: none;
+    border-radius: 0;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+
+
+/* =============== UNIVERSAL RULES =================*/
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+.active {
+    display: block !important;
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    animation: anim .4s ease-in-out;
+}
+
+.form-control {
+    width: auto;
+}
+
+input {
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    left: 93%;
+    top: 3%;
+}
+
+#copyright {
+    color: lightgrey;
+}
+
+/* =============== POPUP ===================== */
+
+.quote-popup {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow-x: hidden;
+    font-family: @main-fontfamily;
+    top: 0;
+    z-index: 9999;
+    background-color: rgba(81, 81, 81, 0.62);
+
+    #popup {
+        position: absolute;
+        background-color: #fff;
+        top: 50%;
+        left: 0;
+        width: 500px;
+        max-width: 100%;
+        height: 430px;
+        margin: -200px 0 0 0;
+        text-align: center;
+        display: none;
+        opacity: 0;
+        border-radius: 5px;
+        transform: scale(0);
+        transition: transform .4s ease-in-out, opacity .4s ease-in-out;
+
+        #page1 {
+            margin-top: 25%;
+        }
+
+        #Postcode {
+            text-transform: uppercase;
+        }
+
+        .k-textbox, span.k-widget.k-dropdown.k-header {
+            width: 75%;
+            margin: 8px 0;
+        }
+
+        textarea {
+            height: 75px;
+        }
+
+        .estimates-content {
+            height: 355px;
+            overflow: auto;
+
+            div {
+                div {
+                    text-align: left;
+                }
+
+                width: 85%;
+                margin: auto;
+            }
+
+            h2 {
+                margin: 20px 0;
+            }
+
+            .describtion {
+                font-size: 20px;
+            }
+
+            .estimation {
+                margin-top: 5px;
+                font-style: italic;
+            }
+        }
+    }
+
+    .vehicle-details-inner {
+        width: 50%;
+        margin: 10px auto 0 auto;
+        padding: 10px 0;
+        border-radius: 5px;
+        background: lightgrey;
+    }
+
+    .switch-field {
+        margin: 20px auto 10px auto;
+        width: 300px;
+
+        label {
+            width: 150px;
+        }
+    }
+
+    #postcode {
+        text-transform: uppercase;
+    }
+}
+
+/* =============== TOP MENU ===================== */
+
+.navbar {
+    background-color: #fff;
+    border-color: #E5E5E5;
+    padding: 3px 25px;
+
+    .container {
+        padding: 1px 0;
+
+        #add-button {
+            margin: auto;
+            background-color: @main-fontcolor;
+            border-color: #7689D5;
+            color: #fff;
+            width: 185px;
+        }
+    }
+
+    .navbar-header {
+        .navbar-brand {
+            background: url('Images/logo.png') no-repeat 0 0;
+            background-size: contain;
+            margin-left: 30px;
+            height: 50px;
+            width: 110px;
+            text-indent: -9999px; /* hides the link text */
+            padding: 0;
+        }
+
+        .navbar-toggle {
+            margin-bottom: 0;
+        }
+
+        .navbar-toggle:hover,
+        .navbar-toggle:focus {
+            background-color: #5264AE !important;
+        }
+
+        .navbar-toggle:hover .icon-bar,
+        .navbar-toggle:focus .icon-bar {
+            background-color: #fff !important;
+        }
+
+        a {
+            color: @main-fontcolor;
+
+            &:hover {
+                color: @main-hovercolor;
+            }
+        }
+    }
+
+
+
+    ul {
+        li {
+            a {
+                color: @main-fontcolor !important;
+
+                &:hover {
+                    color: @main-hovercolor !important;
+                }
+            }
+        }
+    }
+}
+
+
+/* =============== SWITCH BUTTONS =============== */
+
+.switch-field {
+    font-family: @main-fontfamily;
+    overflow: hidden;
+    width: 100%;
+    margin: auto;
+
+    input {
+        display: none;
+    }
+
+    label {
+        float: left;
+        display: inline-block;
+        width: 50%;
+        background-color: #fff;
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        text-shadow: none;
+        padding: 8px 14px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+        -webkit-transition: all 0.1s ease-in-out;
+        -moz-transition: all 0.1s ease-in-out;
+        -ms-transition: all 0.1s ease-in-out;
+        -o-transition: all 0.1s ease-in-out;
+        transition: all 0.1s ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    input:checked + label {
+        background-color: @main-fontcolor;
+        color: #fff;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    label:first-of-type {
+        border-radius: 4px 0 0 4px;
+    }
+
+    label:last-of-type {
+        border-radius: 0 4px 4px 0;
+    }
+}
+
+/*================ ERROR MESSAGE ================ */
+.error {
+    width: 100%;
+    color: red;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+@media (max-height: 320px) and (min-aspect-ratio: 1/1) { /* landscape styles here */
+    .quote-popup {
+        #popup {
+            top: 0 !important;
+        }
+    }
+}
+
+@media @teeny-tiny-phone { /* smartphones, iPhone, portrait 480x320 phones */
+}
+
+@media @smartphone { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+
+    /* =============== POPUP ===================== */
+    .quote-popup {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        overflow-x: hidden;
+        font-family: @main-fontfamily;
+        top: 0;
+        z-index: 9999;
+        background-color: rgba(81, 81, 81, 0.62);
+
+        #popup {
+            position: absolute;
+            background-color: #fff;
+            top: 20%;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            height: 415px;
+            margin: 0;
+            text-align: center;
+            display: none;
+            opacity: 0;
+            border-radius: 5px;
+            transform: scale(0);
+            transition: transform .4s ease-in-out, opacity .4s ease-in-out;
+
+            #page1 {
+                margin-top: 15%;
+            }
+
+            #Postcode {
+                text-transform: uppercase;
+            }
+
+            .k-textbox, span.k-widget.k-dropdown.k-header {
+                width: 75%;
+                margin: 8px 0;
+            }
+
+            textarea {
+                height: 75px;
+            }
+        }
+
+        .vehicle-details-inner {
+            width: 50%;
+            margin: 10px auto 0 auto;
+            padding: 10px 0;
+            border-radius: 5px;
+            background: lightgrey;
+        }
+
+        .switch-field {
+            margin: 20px auto 10px auto;
+            width: 300px;
+
+            label {
+                width: 150px;
+            }
+        }
+
+        #postcode {
+            text-transform: uppercase;
+        }
+    }
+}
+
+@media @landscape-phone { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+
+    /* =============== SWITCH BUTTONS =============== */
+    .switch-field {
+        font-family: @main-fontfamily;
+        overflow: hidden;
+        width: 450px;
+        margin: auto;
+
+        input {
+            display: none;
+        }
+
+        label {
+            float: left;
+            display: inline-block;
+            width: 225px;
+            background-color: #fff;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: none;
+            padding: 8px 14px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+            -webkit-transition: all 0.1s ease-in-out;
+            -moz-transition: all 0.1s ease-in-out;
+            -ms-transition: all 0.1s ease-in-out;
+            -o-transition: all 0.1s ease-in-out;
+            transition: all 0.1s ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        input:checked + label {
+            background-color: @main-fontcolor;
+            color: #fff;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        label:first-of-type {
+            border-radius: 4px 0 0 4px;
+        }
+
+        label:last-of-type {
+            border-radius: 0 4px 4px 0;
+        }
+    }
+
+    /* =============== POPUP ===================== */
+    .quote-popup {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        overflow-x: hidden;
+        font-family: @main-fontfamily;
+        top: 0;
+        z-index: 9999;
+        background-color: rgba(81, 81, 81, 0.62);
+
+        #popup {
+            position: absolute;
+            background-color: #fff;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            height: 415px;
+            margin: 0;
+            text-align: center;
+            display: none;
+            opacity: 0;
+            border-radius: 5px;
+            transform: scale(0);
+            transition: transform .4s ease-in-out, opacity .4s ease-in-out;
+
+            #page1 {
+                margin-top: 15%;
+            }
+
+            #Postcode {
+                text-transform: uppercase;
+            }
+
+            .k-textbox, span.k-widget.k-dropdown.k-header {
+                width: 75%;
+                margin: 8px 0;
+            }
+
+            textarea {
+                height: 75px;
+            }
+        }
+
+        .vehicle-details-inner {
+            width: 50%;
+            margin: 10px auto 0 auto;
+            padding: 10px 0;
+            border-radius: 5px;
+            background: lightgrey;
+        }
+
+        .switch-field {
+            margin: 20px auto 10px auto;
+            width: 300px;
+
+            label {
+                width: 150px;
+            }
+        }
+
+        #postcode {
+            text-transform: uppercase;
+        }
+    }
+}
+
+@media @portrait-tablets {
+
+    /* =============== POPUP ===================== */
+
+    .quote-popup {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        overflow-x: hidden;
+        font-family: @main-fontfamily;
+        top: 0;
+        z-index: 9999;
+        background-color: rgba(81, 81, 81, 0.62);
+
+        #popup {
+            position: absolute;
+            background-color: #fff;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 415px;
+            margin: -200px 0 0 -250px;
+            text-align: center;
+            display: none;
+            opacity: 0;
+            border-radius: 5px;
+            transform: scale(0);
+            transition: transform .4s ease-in-out, opacity .4s ease-in-out;
+
+            #Postcode {
+                text-transform: uppercase;
+            }
+
+            .k-textbox, span.k-widget.k-dropdown.k-header {
+                width: 75%;
+                margin: 8px 0;
+            }
+
+            textarea {
+                height: 75px;
+            }
+        }
+
+        .vehicle-details-inner {
+            width: 50%;
+            margin: 10px auto 0 auto;
+            padding: 10px 0;
+            border-radius: 5px;
+            background: lightgrey;
+        }
+
+        .switch-field {
+            margin: 20px auto 10px auto;
+            width: 300px;
+
+            label {
+                width: 150px;
+            }
+        }
+
+        #postcode {
+            text-transform: uppercase;
+        }
+    }
+}
+
+@media @large-tablets { /* tablet, landscape iPad, lo-res laptops ands desktops */
+
+    /* =============== POPUP ===================== */
+
+    .quote-popup {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        overflow-x: hidden;
+        font-family: @main-fontfamily;
+        top: 0;
+        z-index: 9999;
+        background-color: rgba(81, 81, 81, 0.62);
+
+        #popup {
+            position: absolute;
+            background-color: #fff;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 415px;
+            margin: -200px 0 0 -250px;
+            text-align: center;
+            display: none;
+            opacity: 0;
+            border-radius: 5px;
+            transform: scale(0);
+            transition: transform .4s ease-in-out, opacity .4s ease-in-out;
+
+            #Postcode {
+                text-transform: uppercase;
+            }
+
+            .k-textbox, span.k-widget.k-dropdown.k-header {
+                width: 75%;
+                margin: 8px 0;
+            }
+
+            textarea {
+                height: 75px;
+            }
+        }
+
+        .vehicle-details-inner {
+            width: 50%;
+            margin: 10px auto 0 auto;
+            padding: 10px 0;
+            border-radius: 5px;
+            background: lightgrey;
+        }
+
+        .switch-field {
+            margin: 20px auto 10px auto;
+            width: 300px;
+
+            label {
+                width: 150px;
+            }
+        }
+
+        #postcode {
+            text-transform: uppercase;
+        }
+    }
+}
+
+@media @landscape-tablets { /* big landscape tablets, laptops, and desktops */
+
+    /* =============== POPUP ===================== */
+
+    .quote-popup {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        overflow-x: hidden;
+        font-family: @main-fontfamily;
+        top: 0;
+        z-index: 9999;
+        background-color: rgba(81, 81, 81, 0.62);
+
+        #popup {
+            position: absolute;
+            background-color: #fff;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 415px;
+            margin: -200px 0 0 -250px;
+            text-align: center;
+            display: none;
+            opacity: 0;
+            border-radius: 5px;
+            transform: scale(0);
+            transition: transform .4s ease-in-out, opacity .4s ease-in-out;
+
+            #Postcode {
+                text-transform: uppercase;
+            }
+
+            .k-textbox, span.k-widget.k-dropdown.k-header {
+                width: 75%;
+                margin: 8px 0;
+            }
+
+            textarea {
+                height: 75px;
+            }
+        }
+
+        .vehicle-details-inner {
+            width: 50%;
+            margin: 10px auto 0 auto;
+            padding: 10px 0;
+            border-radius: 5px;
+            background: lightgrey;
+        }
+
+        .switch-field {
+            margin: 20px auto 10px auto;
+            width: 300px;
+
+            label {
+                width: 150px;
+            }
+        }
+
+        #postcode {
+            text-transform: uppercase;
+        }
+    }
+
+
+    /* =============== TOP MENU ===================== */
+
+    .navbar {
+        .container {
+            #add-button {
+                float: right;
+                margin: 7px 50px 0 0;
+                background-color: @main-fontcolor;
+                border-color: #7689D5;
+                color: #fff;
+                width: 185px;
+            }
+        }
+    }
+}
+
+@media @laptops { /* hi-res laptops and desktops */
+
+    /* ==============  HEADER STYLE ==================*/
+    h1 {
+        font-size: 55px;
+        font-weight: bold;
+        font-family: @main-fontfamily;
+    }
+
+    h2 {
+        font-size: 35px;
+        font-weight: bold;
+        font-family: @main-fontfamily;
+    }
+
+    /* ==============  BUTTON STYLE ==================*/
+    section.press button {
+        color: #fff;
+        background-color: #6496c8;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 3px #27496d !important;
+
+        &:hover {
+            background-color: #417cb8;
+            color: #fff;
+        }
+
+        &:active {
+            background-color: #417cb8 !important;
+            box-shadow: 0 0.5px #27496d !important;
+            transform: translateY(3px);
+            color: #fff !important;
+        }
+    }
+
+    button {
+        display: inline-block;
+        margin: 0 10px 0 0;
+        padding: 0px 65px;
+        font-size: 20px;
+        font-family: @main-fontfamily;
+        line-height: 1.8;
+        appearance: none;
+        box-shadow: none;
+        border-radius: 0;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+
+
+    /* =============== UNIVERSAL RULES =================*/
+
+    .hidden {
+        display: none;
+        opacity: 0;
+    }
+
+    .noscroll {
+        overflow: hidden;
+    }
+
+    .active {
+        display: block !important;
+        transform: scale(1) !important;
+        opacity: 1 !important;
+        animation: anim .4s ease-in-out;
+    }
+
+    .form-control {
+        width: auto;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    .close {
+        position: absolute;
+        left: 93%;
+        top: 3%;
+    }
+
+    #copyright {
+        color: lightgrey;
+    }
+
+    /* =============== POPUP ===================== */
+
+    .quote-popup {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        overflow-x: hidden;
+        font-family: @main-fontfamily;
+        top: 0;
+        z-index: 9999;
+        background-color: rgba(81, 81, 81, 0.62);
+
+        #popup {
+            position: absolute;
+            background-color: #fff;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 415px;
+            margin: -200px 0 0 -250px;
+            text-align: center;
+            display: none;
+            opacity: 0;
+            border-radius: 5px;
+            transform: scale(0);
+            transition: transform .4s ease-in-out, opacity .4s ease-in-out;
+
+            #Postcode {
+                text-transform: uppercase;
+            }
+
+            .k-textbox, span.k-widget.k-dropdown.k-header {
+                width: 75%;
+                margin: 8px 0;
+            }
+
+            textarea {
+                height: 75px;
+            }
+        }
+
+        .vehicle-details-inner {
+            width: 50%;
+            margin: 10px auto 0 auto;
+            padding: 10px 0;
+            border-radius: 5px;
+            background: lightgrey;
+        }
+
+        .switch-field {
+            margin: 20px auto 10px auto;
+            width: 300px;
+
+            label {
+                width: 150px;
+            }
+        }
+
+        #postcode {
+            text-transform: uppercase;
+        }
+    }
+
+    /* =============== TOP MENU ===================== */
+
+    .navbar {
+        background-color: #fff;
+        border-color: #E5E5E5;
+
+        .navbar-header {
+            .navbar-brand {
+                background: url('Images/logo.png') no-repeat 0 0;
+                background-size: contain;
+                margin-left: 20px;
+                height: 52px;
+                text-indent: -9999px; /* hides the link text */
+            }
+
+            a {
+                color: @main-fontcolor;
+
+                &:hover {
+                    color: @main-hovercolor;
+                }
+            }
+        }
+
+        ul {
+            li {
+                a {
+                    color: @main-fontcolor !important;
+
+                    &:hover {
+                        color: @main-hovercolor !important;
+                    }
+                }
+            }
+        }
+    }
+
+
+    /* =============== SWITCH BUTTONS =============== */
+
+    .switch-field {
+        font-family: @main-fontfamily;
+        overflow: hidden;
+        width: 450px;
+        margin: auto;
+
+        input {
+            display: none;
+        }
+
+        label {
+            float: left;
+            display: inline-block;
+            width: 225px;
+            background-color: #fff;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: none;
+            padding: 6px 14px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+            -webkit-transition: all 0.1s ease-in-out;
+            -moz-transition: all 0.1s ease-in-out;
+            -ms-transition: all 0.1s ease-in-out;
+            -o-transition: all 0.1s ease-in-out;
+            transition: all 0.1s ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        input:checked + label {
+            background-color: @main-fontcolor;
+            color: #fff;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        label:first-of-type {
+            border-radius: 4px 0 0 4px;
+        }
+
+        label:last-of-type {
+            border-radius: 0 4px 4px 0;
+        }
+    }
+
+    /*================ ERROR MESSAGE ================ */
+    .error {
+        width: 100%;
+        color: red;
+        font-weight: bold;
+        margin: 5px 0;
+    }
+}

@@ -1,0 +1,45 @@
+﻿@using CarFixed.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<div class="login">
+    <h2>@ViewBag.Title.</h2>
+    <h4>Use a local account to log in.</h4>
+
+    <section id="loginForm">
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+            @Html.AntiForgeryToken()
+            <hr />
+
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div>
+                    @Html.Kendo().TextBoxFor(m => m.Email).Name("email").HtmlAttributes(new { placeholder = "E-mail", @type="email" })
+                </div>            
+                <div>
+                    @Html.Kendo().TextBoxFor(m => m.Password).Name("Password").HtmlAttributes(new { placeholder = "Password", @type="password" })
+                </div>
+                <div class="remember-me">
+                    @Html.Kendo().CheckBoxFor(m => m.RememberMe).Label("Remember Me")
+                </div>
+                <div>
+                    @Html.Kendo().Button().Name("LogIn").Content("Log In").HtmlAttributes(new { type = "submit" })
+                </div>
+                <p>
+                    @Html.ActionLink("New user?", "Register")
+                </p>
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
+        }
+    </section>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

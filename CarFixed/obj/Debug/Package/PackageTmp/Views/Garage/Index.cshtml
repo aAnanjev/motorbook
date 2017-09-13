@@ -1,0 +1,87 @@
+﻿@model GarageIndexModel
+
+@using CarFixed.Models
+@using CarFixed.DS.DM
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        $('.account-tab-menu .jobs').addClass("open-tab");
+    });
+</script>
+
+@Html.Partial("~/Views/Account/_MyAccountMenu.cshtml")
+
+
+<div id="garage">
+    <h2>Job Requests</h2>
+    <div class="switch-field">
+        <input type="radio" id="switch_left" name="job-status" value="active" checked />
+        <label for="switch_left">Active (@Model.QuoteOptions.Count)</label>
+        <input type="radio" id="switch_right" name="job-status" value="submitted" />
+        <label for="switch_right">Submitted (@Model.SubmittedQuoteOptions.Count)</label>
+    </div>
+
+    <div class="active-quotes">
+        @*@using (Html.BeginForm("SaveGarageDashboard", "Garage", FormMethod.Post, new { @class = "form-horizontal", role = "form", @id = "garage-form" }))
+        {*@
+            @if (Model.QuoteOptions != null)
+            {
+                <h3>Not quoted for</h3>
+
+                foreach (QuoteGarageOption opt in Model.QuoteOptions)
+                {
+                    @Html.Partial("_QuoteGarageOptionPartial", opt);
+                }
+                @*@Html.EditorFor(m => m.QuoteOptions)*@
+            }
+        @*}*@
+    </div>
+
+    <div class="submitted-quotes hidden">
+        <h3>Quotes Submitted</h3>
+        @foreach (QuoteGarageOption option in Model.SubmittedQuoteOptions)
+        {
+            <div class="garage-quote-item">
+                <div class="quote-details">
+                    <h3>@option.Quote.Vehicle.Manufacturer @option.Quote.Vehicle.Model</h3>
+                    <hr />
+
+                    @foreach (QuoteItemBasic basic in option.Quote.QuoteItemBasics)
+                    {
+                        <h4>@basic.BasicSubCategory.BasicCategory.Title, @basic.BasicSubCategory.Title</h4>
+                        <h4></h4>
+                        <div class="issue-description">@basic.AdditionalInfo</div>
+                    }
+
+                    <div>@option.Quote.DateAdded</div>
+                </div>
+                <div class="submit-quote-values">
+                    <h3>Your Response</h3>
+                    <div class="mech-response-message">
+                        @option.QuoteSubmittedMessage
+                    </div>
+                    <div class="mech-response-price">
+                        <h4>Quoted Price: £@option.QuoteSubmittedValue</h4>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    $('input[type=radio][name=job-status]').change(function () {
+        if (this.value == 'active') {
+            $('.active-quotes').removeClass("hidden");
+            $('.submitted-quotes').addClass("hidden");
+        }
+        else if (this.value == 'submitted') {
+            $('.submitted-quotes').removeClass("hidden");
+            $('.active-quotes').addClass("hidden");
+        }
+    });
+</script>

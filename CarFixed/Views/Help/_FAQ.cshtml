@@ -1,0 +1,125 @@
+﻿
+@{
+    Layout = "";
+}
+<div id="faq">
+    <h1>F.A.Q.</h1>
+    <div class="accordion-container">
+        <div class="accordion-item">
+            <h3>My Car Needs Fixed – How does the site work?</h3>
+            <div class="accordion-content">
+                <p>
+                    We have made the site simple for you to get your car fixed. Follow these 4 steps and we’ll have you back on the road:
+                    <ul>
+                        <li>
+                            Enter the details of the work you require via the user friendly options on the website.
+                        </li>
+                        <li>
+                            MyCarFixed.co.uk will offer your job to our network of service providers who will bid for your work.
+                        </li>
+                        <li>
+                            Once the bid process closes you can select the best deal for you. It might be price. It might be on the overall service offered. It might be reviews. Either way you are guaranteed the best deal for you in the most convenient way. Saving time, money and effort!
+                        </li>
+                        <li>
+                            Pop back here and tell us what you think. We strive to provide an exceptional customer experience at all times and feedback on our site and the garage itself is very important.
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3>How do I post a job?</h3>
+            <div class="accordion-content">
+                <p>
+                    Enter your registration and a few details so we can contact you, let us know what your car needs fixed and hit Go! We’ll take care of the rest.
+                </p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3>How much does it cost?</h3>
+            <div class="accordion-content">
+                <p>
+                    MyCarFixed.co.uk is completely free of charge! You will however need to pay the garage for work once your car is fixed.
+                </p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3>How will the garages contact me?</h3>
+            <div class="accordion-content">
+                <p>
+                    We consider your privacy very important and will only give your details out once you log back in and select the quote you want. Then you and the 
+                    garage can arrange whatever time and date suits you best.
+                </p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3>How long does it take to receive bids?</h3>
+            <div class="accordion-content">
+                <p>
+                    This depends on a few things. The type of job and location being the biggest factors. Some of our preferred partners have an ability to automatically 
+                    quote you on jobs like servicing and MOT’s so you will receive them instantly.
+                </p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3>Will I get spammed?</h3>
+            <div class="accordion-content">
+                <p>
+                    Nobody likes getting inundated with relentless emails! We will send you three, one with the first quote, an update an hour later and a reminder that 
+                    you have quotes waiting if no job was selected within 24 hours. 
+                </p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3>What details should I provide when requesting a job?</h3>
+            <div class="accordion-content">
+                <p>
+                    Simply put, as much as possible. We have a unique system so the more detail you can provide we can then suggest to you how long it should take to repair 
+                    and a guide price for that job. @* TODO : finish this?*@
+                </p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3>What happens when I accept a Quote?</h3>
+            <div class="accordion-content">
+                <p>
+                    We will then contact the garage and give them the preferred contact details for you and ask them to arrange a time and date for your booking.
+                </p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3>How do I leave feedback?</h3>
+            <div class="accordion-content">
+                <p>
+                    Once you've accepted a job and the work has been completed simply log in to your account, find the job leave your feedback. Rate it, leave a 
+                    short comment and whether you would recommend the garage to others.
+                </p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3>Does MyCarFixed.co.uk recommend any garages?</h3>
+            <div class="accordion-content">
+                <p>
+                    We are impartial and will always give you every quote that comes through.
+                </p>
+            </div>
+        </div>
+        @* AA: LEAVING THIS AS TEMPLATE FOR FUTURE ADDITION *@
+        @*<div class="accordion-item">
+            <h3></h3>
+            <div class="accordion-content">
+                <p>
+                </p>
+            </div>
+        </div>*@
+    </div>
+</div>
+
+<script>
+    $('.accordion-item h3').click(function () {
+        $(this).siblings(".accordion-content").slideToggle("slow");
+        if ($(this).parent().siblings(".accordion-item").find(".accordion-content").is(":visible")) {
+            $(this).parent().siblings(".accordion-item").find(".accordion-content").slideUp("slow");
+        }
+    });
+</script>

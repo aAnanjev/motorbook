@@ -1,0 +1,20 @@
+﻿@model CarFixed.Models.AdminGarageModelView
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using CarFixed.DS.DM;
+
+<h2>Garages</h2>
+
+@foreach (Garage garage in Model.Garages)
+{
+    <div>
+        @Html.ActionLink(garage.Name, "EditGarage", new { garageId = garage.GarageID })
+    </div>
+    <div>
+        Status: @garage.Status.DisplayName
+    </div>
+}
+

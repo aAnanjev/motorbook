@@ -1,0 +1,110 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFixed", "CarFixed\CarFixed.csproj", "{ABB848C1-B6F5-45FF-831B-278F8C52E2FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFixed.Tests", "CarFixed.Tests\CarFixed.Tests.csproj", "{6BFEF372-EED0-463C-BB80-C4DFDDCED2C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataServices", "DataServices", "{122C5568-9B1A-4995-94C8-010CE98E14B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFixed.DS.BLL", "DataServices\CarFixed.DS.BLL\CarFixed.DS.BLL.csproj", "{86FC3318-3280-4B59-BE23-7F46B160676B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFixed.DS.DAL", "DataServices\CarFixed.DS.DAL\CarFixed.DS.DAL.csproj", "{9C9736A7-92F8-48C1-BA74-E439116B5D8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFixed.DS.DM", "DataServices\CarFixed.DS.DM\CarFixed.DS.DM.csproj", "{58C52FBC-92C6-46EA-A5B4-B668B3EEDB19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "binaries", "binaries", "{AC212293-E4A4-44B4-9631-07DE86E2234F}"
+	ProjectSection(SolutionItems) = preProject
+		binaries\AutoGuru.Assistant.dll = binaries\AutoGuru.Assistant.dll
+		binaries\AutoGuru.Data.dll = binaries\AutoGuru.Data.dll
+		binaries\AutoGuru.DataProvider.dll = binaries\AutoGuru.DataProvider.dll
+		binaries\Kendo.Mvc.dll = binaries\Kendo.Mvc.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFixed.DS.API", "DataServices\CarFixed.DS.API\CarFixed.DS.API.csproj", "{B7F686B6-C199-4B34-A3F5-7183710C5F02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFixed.Core", "CarFixed.Core\CarFixed.Core.csproj", "{93D9F661-BBEB-4C5C-BC1F-495AB494E6B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmailTemplates", "EmailTemplates", "{5AE010F9-8ABD-4518-8F45-5A4573044CC1}"
+	ProjectSection(SolutionItems) = preProject
+		EmailTemplates\StandardEmailTemplate_Styled.html = EmailTemplates\StandardEmailTemplate_Styled.html
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABB848C1-B6F5-45FF-831B-278F8C52E2FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB848C1-B6F5-45FF-831B-278F8C52E2FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB848C1-B6F5-45FF-831B-278F8C52E2FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB848C1-B6F5-45FF-831B-278F8C52E2FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BFEF372-EED0-463C-BB80-C4DFDDCED2C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BFEF372-EED0-463C-BB80-C4DFDDCED2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BFEF372-EED0-463C-BB80-C4DFDDCED2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BFEF372-EED0-463C-BB80-C4DFDDCED2C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86FC3318-3280-4B59-BE23-7F46B160676B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86FC3318-3280-4B59-BE23-7F46B160676B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86FC3318-3280-4B59-BE23-7F46B160676B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86FC3318-3280-4B59-BE23-7F46B160676B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C9736A7-92F8-48C1-BA74-E439116B5D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9736A7-92F8-48C1-BA74-E439116B5D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9736A7-92F8-48C1-BA74-E439116B5D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9736A7-92F8-48C1-BA74-E439116B5D8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C52FBC-92C6-46EA-A5B4-B668B3EEDB19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C52FBC-92C6-46EA-A5B4-B668B3EEDB19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C52FBC-92C6-46EA-A5B4-B668B3EEDB19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C52FBC-92C6-46EA-A5B4-B668B3EEDB19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7F686B6-C199-4B34-A3F5-7183710C5F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F686B6-C199-4B34-A3F5-7183710C5F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F686B6-C199-4B34-A3F5-7183710C5F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F686B6-C199-4B34-A3F5-7183710C5F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93D9F661-BBEB-4C5C-BC1F-495AB494E6B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93D9F661-BBEB-4C5C-BC1F-495AB494E6B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93D9F661-BBEB-4C5C-BC1F-495AB494E6B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93D9F661-BBEB-4C5C-BC1F-495AB494E6B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{86FC3318-3280-4B59-BE23-7F46B160676B} = {122C5568-9B1A-4995-94C8-010CE98E14B3}
+		{9C9736A7-92F8-48C1-BA74-E439116B5D8B} = {122C5568-9B1A-4995-94C8-010CE98E14B3}
+		{58C52FBC-92C6-46EA-A5B4-B668B3EEDB19} = {122C5568-9B1A-4995-94C8-010CE98E14B3}
+		{B7F686B6-C199-4B34-A3F5-7183710C5F02} = {122C5568-9B1A-4995-94C8-010CE98E14B3}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://autodataguru.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CarFixed\\CarFixed.csproj
+		SccProjectName1 = CarFixed
+		SccLocalPath1 = CarFixed
+		SccProjectUniqueName2 = CarFixed.Tests\\CarFixed.Tests.csproj
+		SccProjectName2 = CarFixed.Tests
+		SccLocalPath2 = CarFixed.Tests
+		SccProjectUniqueName3 = DataServices\\CarFixed.DS.BLL\\CarFixed.DS.BLL.csproj
+		SccProjectTopLevelParentUniqueName3 = CarFixed.sln
+		SccProjectName3 = DataServices/CarFixed.DS.BLL
+		SccLocalPath3 = DataServices\\CarFixed.DS.BLL
+		SccProjectUniqueName4 = DataServices\\CarFixed.DS.DAL\\CarFixed.DS.DAL.csproj
+		SccProjectTopLevelParentUniqueName4 = CarFixed.sln
+		SccProjectName4 = DataServices/CarFixed.DS.DAL
+		SccLocalPath4 = DataServices\\CarFixed.DS.DAL
+		SccProjectUniqueName5 = DataServices\\CarFixed.DS.DM\\CarFixed.DS.DM.csproj
+		SccProjectTopLevelParentUniqueName5 = CarFixed.sln
+		SccProjectName5 = DataServices/CarFixed.DS.DM
+		SccLocalPath5 = DataServices\\CarFixed.DS.DM
+		SccProjectUniqueName6 = DataServices\\CarFixed.DS.API\\CarFixed.DS.API.csproj
+		SccProjectTopLevelParentUniqueName6 = CarFixed.sln
+		SccProjectName6 = DataServices/CarFixed.DS.API
+		SccLocalPath6 = DataServices\\CarFixed.DS.API
+		SccProjectUniqueName7 = CarFixed.Core\\CarFixed.Core.csproj
+		SccProjectName7 = CarFixed.Core
+		SccLocalPath7 = CarFixed.Core
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,36 @@
+﻿@{ 
+    ViewBag.Title = "My Details";
+}
+<script>
+    $(document).ready(function () {
+        $('.account-tab-menu .details').addClass("open-tab");
+    });
+</script>
+
+@Html.Partial("_MyAccountMenu")
+<div id="my-details">
+    <div class="accordion-container">
+        <div class="accordion-item">
+            <h3>Update Personal Details</h3>
+            <div class="accordion-content">
+                @Html.Action("MyProfile")
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3>Change Password</h3>
+            <div class="accordion-content">
+                @Html.Action("ChangePassword")
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.accordion-item h3').unbind().click(function () {
+        $(this).siblings(".accordion-content").slideToggle("slow");
+
+        if ($(this).parent().siblings(".accordion-item").find(".accordion-content").is(":visible")) {
+            $(this).parent().siblings(".accordion-item").find(".accordion-content").slideUp("slow");
+        }
+    });
+</script>

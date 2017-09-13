@@ -1,0 +1,42 @@
+﻿@model QuoteGarageOption
+
+@using CarFixed.DS.DM;
+
+<div class="garage-quote-item">
+    @Html.HiddenFor(o => o.QuoteGarageOptionID)
+    @Html.HiddenFor(m=>m.IsSelected, new { @class="isSelected" + Model.QuoteGarageOptionID})
+    @*<div>@Html.Kendo().CheckBoxFor(m => m.IsSelected).Label("Quote for Job")</div>*@
+    <div class="quote-details">
+        <h3>@Model.Quote.Vehicle.Manufacturer @Model.Quote.Vehicle.Model</h3>
+        <hr />
+        <div>@*@Model.Quote.Vehicle.VRM*@</div>
+
+        @foreach (QuoteItemBasic basic in Model.Quote.QuoteItemBasics)
+        {
+            <h4>@basic.BasicSubCategory.BasicCategory.Title, @basic.BasicSubCategory.Title</h4>
+            <h4></h4>
+            <div class="issue-description">@basic.AdditionalInfo</div>
+
+        }
+        <div>@Model.DateAdded</div>
+    </div>
+    <div class="submit-quote-values">
+        <h3>Your Response</h3>
+        <div class="mech-response-message">
+            @Html.TextAreaFor(m => m.QuoteSubmittedMessage, new { @class = "k-textbox", placeholder = "Type your response message here" })
+        </div>
+        <div class="mech-response-price">@Html.Kendo().NumericTextBoxFor(m => m.QuoteSubmittedValue).Decimals(2).HtmlAttributes(new { @class = "quote-price", placeholder="£" })</div>
+    </div>
+
+    <div class="quote-control-buttons">
+        @Html.Kendo().Button().Name("Send_" + Model.QuoteID).Content("Send").HtmlAttributes(new { type="button", onclick="Javascript:SubmitForm("+ Model.QuoteGarageOptionID+")"})
+        @Html.Kendo().Button().Name("Dismiss_" + Model.QuoteID).Content("Dismiss")
+    </div>
+</div>
+
+<script>
+    function SubmitForm(id) {
+        $('.isSelected' + id).val(true);
+        $('#garage-form').submit();
+    }
+</script>

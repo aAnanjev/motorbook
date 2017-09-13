@@ -1,0 +1,423 @@
+﻿/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+/* NEW YEAR SCREEN RESOLUTIONS FOR MEDIA QUERIES */
+@font-face {
+  font-family: 'UKNumberPlate';
+  src: url('../fonts/UKNumberPlate.ttf') format('truetype');
+}
+.register {
+  margin-top: 10px;
+  text-align: center;
+  color: #5264AE;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+.register h4 {
+  font-size: 20px;
+  margin: 10px 0 20px 0;
+}
+.register form .registration-form {
+  width: 100%;
+  margin: auto;
+}
+.register form .registration-form input {
+  width: 99%;
+  margin: 10px 0;
+  text-align: left;
+}
+.register form .registration-form input[type=checkbox] {
+  width: auto;
+}
+.register form .registration-form .template-child {
+  width: 48%;
+  display: inline-block;
+  text-align: left;
+  padding-left: 1%;
+}
+.register form .registration-form textarea {
+  width: 100%;
+  height: 100px;
+  max-width: 100%;
+  margin: 10px 0;
+}
+.register form .registration-form button,
+.register form .registration-form label {
+  margin: 10px 0;
+}
+.register form .registration-form #category-checkboxes {
+  text-align: left;
+  margin-top: 10px;
+}
+.login {
+  margin-top: 50px;
+  text-align: center;
+  color: #5264AE;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+.login h4 {
+  font-size: 20px;
+  margin: 10px 0 20px 0;
+}
+.login #loginForm {
+  padding: 10px 30px 50px;
+  margin: auto;
+}
+.login #loginForm input {
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.login #loginForm #LogIn {
+  width: 100%;
+}
+.login #loginForm button {
+  margin-bottom: 10px;
+}
+.login #loginForm .remember-me {
+  margin-bottom: 10px;
+}
+#my-account {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  margin-top: 50px;
+}
+#my-account h2 {
+  margin-bottom: 25px;
+}
+#my-account .left-menu ul {
+  background-color: #417cb8;
+  width: 250px;
+  padding: 2px;
+  font-size: 20px;
+  font-weight: 100;
+}
+#my-account .left-menu ul li {
+  color: #5264AE;
+  background-color: #fff;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  margin: 2px;
+  height: 45px;
+  padding: 15px 0 0 0;
+}
+#my-account .left-menu ul li:hover {
+  color: #fff;
+  background-color: #5264AE;
+  cursor: pointer;
+}
+#security {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  color: #5264AE;
+  text-align: center;
+}
+#my-profile {
+  width: 1024px;
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
+}
+.vehicles {
+  width: 1024px;
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
+}
+.vehicles .accordion-container .accordion-item {
+  margin: 3px 0;
+}
+.vehicles .accordion-container .accordion-item h3 {
+  user-select: none;
+  cursor: pointer;
+  color: white;
+  font-size: 17px;
+  background-color: #5264AE;
+  border-radius: 5px;
+  padding: 10px 0;
+  margin: 0 15px;
+}
+.vehicles .accordion-container .accordion-item .accordion-content {
+  display: none;
+  padding: 5px 10px;
+}
+#my-quotes {
+  width: 1024px;
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
+  color: #5264AE;
+}
+#my-quotes h3 {
+  font-weight: bold;
+  font-size: 18px;
+}
+#my-quotes .quote-item {
+  color: #000;
+  border: 1px solid lightgrey;
+  box-shadow: 3px 3px 5px #888888;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+#my-quotes .quote-item .quote-main-content {
+  overflow: hidden;
+  cursor: pointer;
+  padding: 10px 0px 10px 0;
+}
+#my-quotes .quote-item .left-side-quote {
+  width: 50%;
+  float: left;
+  text-align: left;
+  padding: 0 0 0 15px;
+}
+#my-quotes .quote-item .right-side-quote {
+  width: 50%;
+  float: left;
+}
+#my-quotes .quote-item .quote-hidden-content {
+  display: none;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+#my-quotes .quote-item .quote-hidden-content hr {
+  margin-top: 0;
+}
+#my-details {
+  width: 1024px;
+  max-width: 100%;
+  margin: auto;
+}
+#my-details .accordion-content {
+  display: none;
+}
+#my-details .accordion-item {
+  margin: 10px 0;
+}
+#my-details .accordion-item h3 {
+  color: #5264AE;
+  font-size: 18px;
+  padding: 10px 15px;
+  margin: 0 15px;
+  border: 1px solid lightgrey;
+}
+#my-details .accordion-item h3:hover {
+  cursor: pointer;
+}
+#change-pw {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  color: #5264AE;
+  text-align: center;
+}
+.account-tab-menu {
+  width: 1024px;
+  max-width: 100%;
+  margin: 10px auto;
+}
+.account-tab-menu ul {
+  display: table-row;
+}
+.account-tab-menu ul li {
+  text-align: center;
+  display: table-cell;
+  width: 2%;
+}
+.account-tab-menu ul li a {
+  font-size: 20px;
+  color: #5264AE;
+  padding: 20px;
+  display: block;
+  background-color: #EDEDED;
+  border: 1px solid grey;
+}
+.account-tab-menu ul li a:hover {
+  text-decoration: none;
+}
+.account-tab-menu ul .open-tab a {
+  background-color: #fff;
+  border: 1px solid grey;
+  border-bottom: 0;
+}
+@media (min-width:320px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+}
+@media (min-width:480px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+}
+@media (min-width:640px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .register {
+    margin-top: 50px;
+    text-align: center;
+    color: #5264AE;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  }
+  .register h4 {
+    font-size: 20px;
+    margin: 10px 0 20px 0;
+  }
+  .register form .registration-form {
+    width: 450px;
+    margin: auto;
+  }
+  .register form .registration-form input {
+    width: 100%;
+    margin: 10px 0;
+    text-align: left;
+  }
+  .register form .registration-form input[type=checkbox] {
+    width: auto;
+  }
+  .register form .registration-form .template-child {
+    width: 48%;
+    display: inline-block;
+    text-align: left;
+    padding-left: 1%;
+  }
+  .register form .registration-form textarea {
+    width: 100%;
+    height: 100px;
+    max-width: 100%;
+    margin: 10px 0;
+  }
+  .register form .registration-form button,
+  .register form .registration-form label {
+    margin: 10px 0;
+  }
+  .login {
+    margin-top: 0;
+    text-align: center;
+    color: #5264AE;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  }
+  .login h4 {
+    font-size: 20px;
+    margin: 10px 0 20px 0;
+  }
+  .login #loginForm {
+    width: 450px;
+    margin: auto;
+  }
+  .login #loginForm input {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .login #loginForm button {
+    margin-bottom: 10px;
+  }
+  .login #loginForm .remember-me {
+    margin-bottom: 10px;
+  }
+}
+@media (min-width:768px) {
+  .login {
+    margin-top: 50px;
+  }
+}
+@media (min-width:960px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width:1024px) {
+  /* big landscape tablets, laptops, and desktops */
+  .login #loginForm button {
+    width: auto !important;
+  }
+}
+@media (min-width: 1280px) {
+  /* hi-res laptops and desktops */
+  .register {
+    margin-top: 50px;
+    text-align: center;
+    color: #5264AE;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  }
+  .register h4 {
+    font-size: 20px;
+    margin: 10px 0 20px 0;
+  }
+  .register form .registration-form {
+    width: 450px;
+    margin: auto;
+  }
+  .register form .registration-form input {
+    width: 100%;
+    margin: 10px 0;
+    text-align: left;
+  }
+  .register form .registration-form input[type=checkbox] {
+    width: auto;
+  }
+  .register form .registration-form .template-child {
+    width: 48%;
+    display: inline-block;
+    text-align: left;
+    padding-left: 1%;
+  }
+  .register form .registration-form textarea {
+    width: 100%;
+    height: 100px;
+    max-width: 100%;
+    margin: 10px 0;
+  }
+  .register form .registration-form button,
+  .register form .registration-form label {
+    margin: 10px 0;
+  }
+  .login {
+    margin-top: 50px;
+    text-align: center;
+    color: #5264AE;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  }
+  .login h4 {
+    font-size: 20px;
+    margin: 10px 0 20px 0;
+  }
+  .login #loginForm {
+    width: 450px;
+    margin: auto;
+  }
+  .login #loginForm input {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .login #loginForm button {
+    margin-bottom: 10px;
+  }
+  .login #loginForm .remember-me {
+    margin-bottom: 10px;
+  }
+  #my-account {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    margin-top: 50px;
+  }
+  #my-account h2 {
+    margin-bottom: 25px;
+  }
+  #my-account .left-menu ul {
+    background-color: #417cb8;
+    width: 250px;
+    padding: 2px;
+    font-size: 20px;
+    font-weight: 100;
+  }
+  #my-account .left-menu ul li {
+    color: #5264AE;
+    background-color: #fff;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    margin: 2px;
+    height: 45px;
+    padding: 15px 0 0 0;
+  }
+  #my-account .left-menu ul li:hover {
+    color: #fff;
+    background-color: #5264AE;
+    cursor: pointer;
+  }
+}

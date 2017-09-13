@@ -1,0 +1,347 @@
+﻿@import url('variables.less');
+
+#about-content {
+    height: 45%;
+    color: @main-fontcolor;
+    font-family: @main-fontfamily;
+    padding: 3% 3%;
+    text-align: center;
+
+    h1 {
+        margin-bottom: 15px;
+    }
+
+    p {
+        margin: 15px 0;
+        font-size: 20px;
+    }
+}
+
+#photo-content {
+    text-align: center;
+    padding: 5% 0;
+    background-color: #F4F4F4;
+
+    h1 {
+        color: @main-fontcolor;
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    h4 {
+        font-style: italic;
+        text-decoration: underline;
+        margin: 5px 0;
+    }
+
+    .about-photo {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+        -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+        -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    }
+
+    .photo-column {
+        display: inline-block;
+        padding: 0 5px;
+        margin: 15px 0;
+    }
+
+    .social-media-links {
+        margin-top: 0;
+
+        li {
+            display: inline-block;
+            width: 30px;
+            margin: 0;
+
+            a {
+                img {
+                    -webkit-transition: all linear 0.3s;
+                    transition: all linear 0.3s;
+                    border-radius: 50%;
+                    height: 30px;
+                    width: 30px;
+                    filter: gray; /* IE6-9 */
+                    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+                    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+                }
+
+                img:hover {
+                    filter: none;
+                    -webkit-filter: grayscale(0);
+                }
+            }
+        }
+    }
+}
+
+@media @teeny-tiny-phone { /* smartphones, iPhone, portrait 480x320 phones */
+}
+
+@media @smartphone { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+}
+
+@media @landscape-phone { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+
+@media @portrait-tablets {
+}
+
+@media @large-tablets { /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media @landscape-tablets { /* big landscape tablets, laptops, and desktops */
+    #about-content {
+        height: 45%;
+        color: @main-fontcolor;
+        font-family: @main-fontfamily;
+        padding: 5% 10%;
+    }
+
+    #photo-content {
+        text-align: center;
+        padding: 2% 13%;
+        background-color: #F4F4F4;
+
+        h1 {
+            color: @main-fontcolor;
+        }
+
+        h3 {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        h4 {
+            font-style: italic;
+            text-decoration: underline;
+            margin: 5px 0;
+        }
+
+        .about-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+            -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+            -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+        }
+
+        .photo-column {
+            display: inline-block;
+            width: 33%;
+            padding: 0 5px;
+            margin: 15px 0;
+        }
+
+        .social-media-links {
+            margin-top: 0;
+
+            li {
+                display: inline-block;
+                width: 30px;
+                margin: 0;
+
+                a {
+                    img {
+                        -webkit-transition: all linear 0.3s;
+                        transition: all linear 0.3s;
+                        border-radius: 50%;
+                        height: 30px;
+                        width: 30px;
+                        filter: gray; /* IE6-9 */
+                        filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+                        -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+                    }
+
+                    img:hover {
+                        filter: none;
+                        -webkit-filter: grayscale(0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media @laptops { /* hi-res laptops and desktops */
+
+    #about-content {
+        color: @main-fontcolor;
+        font-family: @main-fontfamily;
+        padding: 5% 20%;
+        text-align: center;
+
+        h1 {
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin: 15px 0;
+            font-size: 20px;
+        }
+    }
+
+    #photo-content {
+        text-align: center;
+        padding: 2% 0;
+        background-color: #F4F4F4;
+
+        h1 {
+            color: @main-fontcolor;
+        }
+
+        h3 {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        h4 {
+            font-style: italic;
+            text-decoration: underline;
+            margin: 5px 0;
+        }
+
+        .about-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+            -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+            -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+        }
+
+        .photo-column {
+            display: inline-block;
+            width: 33%;
+            padding: 0 5px;
+            margin: 15px 0;
+        }
+
+        .social-media-links {
+            margin-top: 0;
+
+            li {
+                display: inline-block;
+                width: 30px;
+                margin: 0;
+
+                a {
+                    img {
+                        -webkit-transition: all linear 0.3s;
+                        transition: all linear 0.3s;
+                        border-radius: 50%;
+                        height: 30px;
+                        width: 30px;
+                        filter: gray; /* IE6-9 */
+                        filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+                        -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+                    }
+
+                    img:hover {
+                        filter: none;
+                        -webkit-filter: grayscale(0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media @large-desktop { /* ultra hi-res desktops */
+
+    #about-content {
+        color: @main-fontcolor;
+        font-family: @main-fontfamily;
+        padding: 5% 20%;
+        text-align: center;
+
+        h1 {
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin: 15px 0;
+            font-size: 20px;
+        }
+    }
+
+    #photo-content {
+        text-align: center;
+        padding: 2% 20%;
+        background-color: #F4F4F4;
+
+        h1 {
+            color: @main-fontcolor;
+        }
+
+        h3 {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        h4 {
+            font-style: italic;
+            text-decoration: underline;
+            margin: 5px 0;
+        }
+
+        .about-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+            -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+            -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+        }
+
+        .photo-column {
+            display: inline-block;
+            width: 33%;
+            padding: 0 5px;
+            margin: 15px 0;
+        }
+
+        .social-media-links {
+            margin-top: 0;
+
+            li {
+                display: inline-block;
+                width: 30px;
+                margin: 0;
+
+                a {
+                    img {
+                        -webkit-transition: all linear 0.3s;
+                        transition: all linear 0.3s;
+                        border-radius: 50%;
+                        height: 30px;
+                        width: 30px;
+                        filter: gray; /* IE6-9 */
+                        filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+                        -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+                    }
+
+                    img:hover {
+                        filter: none;
+                        -webkit-filter: grayscale(0);
+                    }
+                }
+            }
+        }
+    }
+}

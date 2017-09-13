@@ -1,0 +1,392 @@
+﻿@import url('variables.less');
+
+#garage {
+    width: 1024px;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+
+    .switch-field {
+        margin: 10px auto;
+    }
+
+    div:empty {
+        display: none;
+    }
+
+    h3 {
+        font-size: 22px;
+        margin: 5px 0;
+    }
+
+    h4 {
+        font-size: 18px;
+        margin: 10px 0 15px 0px;
+    }
+
+    .active-quotes {
+
+        .garage-quote-item {
+            overflow: auto;
+            border: 1px solid #000;
+            border-radius: 5px;
+            margin: 15px 15px;
+            box-shadow: 3px 3px 5px #888888;
+
+            div {
+                margin: 3px 0;
+            }
+
+            .quote-details {
+                margin: 20px 0;
+                width: 100%;
+
+                .issue-description {
+                    text-align: center;
+                    width: 95%;
+                    margin: auto;
+                    border: 1px solid lightgrey;
+                    border-radius: 5px;
+                    padding: 10px 0;
+                }
+            }
+
+            .submit-quote-values {
+                width: 100%;
+                margin: auto;
+
+                textarea {
+                    width: 95%;
+                    height: 100px;
+                    margin: 10px 0;
+                    resize: none;
+                }
+
+                .quote-price {
+                    margin-bottom: 10px;
+                    /* webkit solution */
+                    ::-webkit-input-placeholder {
+                        text-align: left;
+                    }
+                    /* mozilla solution */
+                    input:-moz-placeholder {
+                        text-align: left;
+                    }
+                }
+            }
+
+            .quote-control-buttons {
+                clear: both;
+            }
+        }
+    }
+
+    .submitted-quotes {
+
+        .garage-quote-item {
+            overflow: auto;
+            border: 1px solid #000;
+            border-radius: 5px;
+            margin: 15px 15px;
+            box-shadow: 3px 3px 5px #888888;
+
+            div {
+                margin: 3px 0;
+            }
+
+            .quote-details {
+                margin: 20px 0;
+                width: 100%;
+
+                .issue-description {
+                    text-align: center;
+                    width: 95%;
+                    margin: auto;
+                    border: 1px solid lightgrey;
+                    border-radius: 5px;
+                    padding: 10px 0;
+                }
+            }
+
+            .submit-quote-values {
+                width: 100%;
+                margin: auto;
+
+                .mech-response-message {
+                    border: 1px solid lightgrey;
+                    border-radius: 5px;
+                    margin: auto;
+                    padding: 5px;
+                    text-align: center;
+                    width: 95%;
+                    min-height: 100px;
+                }
+
+                textarea {
+                    width: 95%;
+                    height: 100px;
+                    margin: 10px 0;
+                    resize: none;
+                }
+
+                .quote-price {
+                    margin-bottom: 10px;
+                    /* webkit solution */
+                    ::-webkit-input-placeholder {
+                        text-align: left;
+                    }
+                    /* mozilla solution */
+                    input:-moz-placeholder {
+                        text-align: left;
+                    }
+                }
+            }
+
+            .quote-control-buttons {
+                clear: both;
+            }
+        }
+    }
+}
+
+
+@media @teeny-tiny-phone { /* smartphones, iPhone, portrait 480x320 phones */
+}
+
+@media @smartphone { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+}
+
+@media @landscape-phone { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    #garage {
+        width: 1024px;
+        max-width: 100%;
+        margin: auto;
+        text-align: center;
+
+        div:empty {
+            display: none;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin: 5px 0;
+        }
+
+        h4 {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .active-quotes {
+
+            .garage-quote-item {
+                overflow: auto;
+                border: 1px solid #000;
+                border-radius: 5px;
+                margin: 15px 15px;
+                box-shadow: 3px 3px 5px #888888;
+
+                div {
+                    margin: 3px 0;
+                }
+
+                .quote-details {
+                    float: left;
+                    margin-left: 15px;
+                    width: 45%;
+                    text-align: left;
+
+
+                    .issue-description {
+                        text-align: center;
+                        width: auto;
+                        border: 1px solid lightgrey;
+                        border-radius: 5px;
+                        padding: 10px 0;
+                    }
+                }
+
+                .submit-quote-values {
+                    float: right;
+                    width: 45%;
+
+                    textarea {
+                        width: 250px;
+                        height: 100px;
+                        resize: none;
+                    }
+
+                    .quote-price {
+                        /* webkit solution */
+                        ::-webkit-input-placeholder {
+                            text-align: left;
+                        }
+                        /* mozilla solution */
+                        input:-moz-placeholder {
+                            text-align: left;
+                        }
+                    }
+                }
+
+                .quote-control-buttons {
+                    clear: both;
+                }
+            }
+        }
+
+        .submitted-quotes {
+
+            .garage-quote-item {
+                overflow: auto;
+                border: 1px solid #000;
+                border-radius: 5px;
+                margin: 15px 15px;
+                box-shadow: 3px 3px 5px #888888;
+
+                div {
+                    margin: 3px 0;
+                }
+
+                .quote-details {
+                    float: left;
+                    margin-left: 15px;
+                    width: 45%;
+                    text-align: left;
+
+
+                    .issue-description {
+                        text-align: center;
+                        width: auto;
+                        border: 1px solid lightgrey;
+                        border-radius: 5px;
+                        padding: 10px 0;
+                    }
+                }
+
+                .submit-quote-values {
+                    float: right;
+                    width: 45%;
+
+                    .mech-response-message {
+                        border: 1px solid lightgrey;
+                        border-radius: 5px;
+                        margin: auto;
+                        padding: 5px;
+                        text-align: center;
+                        width: 250px;
+                        min-height: 100px;
+                    }
+
+                    .quote-price {
+                        /* webkit solution */
+                        ::-webkit-input-placeholder {
+                            text-align: left;
+                        }
+                        /* mozilla solution */
+                        input:-moz-placeholder {
+                            text-align: left;
+                        }
+                    }
+                }
+
+                .quote-control-buttons {
+                    clear: both;
+                }
+            }
+        }
+    }
+}
+
+@media @portrait-tablets {
+}
+
+@media @large-tablets { /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media @landscape-tablets { /* big landscape tablets, laptops, and desktops */
+}
+
+@media @laptops { /* hi-res laptops and desktops */
+
+    #garage {
+        width: 1024px;
+        max-width: 100%;
+        margin: auto;
+        text-align: center;
+
+        div:empty {
+            display: none;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin: 5px 0;
+        }
+
+        h4 {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .active-quotes {
+
+            .garage-quote-item {
+                overflow: auto;
+                border: 1px solid #000;
+                border-radius: 5px;
+                margin: 15px 15px;
+                box-shadow: 3px 3px 5px #888888;
+
+                div {
+                    margin: 3px 0;
+                }
+
+                .quote-details {
+                    float: left;
+                    margin-left: 15px;
+                    width: 45%;
+                    text-align: left;
+
+
+                    .issue-description {
+                        text-align: center;
+                        width: auto;
+                        border: 1px solid lightgrey;
+                        border-radius: 5px;
+                        padding: 10px 0;
+                    }
+                }
+
+                .submit-quote-values {
+                    float: right;
+                    width: 45%;
+                    margin: 15px 30px;
+
+                    textarea {
+                        width: 250px;
+                        height: 100px;
+                        resize: none;
+                    }
+
+                    .quote-price {
+                        /* webkit solution */
+                        ::-webkit-input-placeholder {
+                            text-align: left;
+                        }
+                        /* mozilla solution */
+                        input:-moz-placeholder {
+                            text-align: left;
+                        }
+                    }
+                }
+
+                .quote-control-buttons {
+                    clear: both;
+                }
+            }
+        }
+
+        .submitted-quotes {
+        }
+    }
+}
